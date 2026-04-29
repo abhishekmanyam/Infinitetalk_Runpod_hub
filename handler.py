@@ -11,6 +11,7 @@ import binascii  # Base64 에러 처리를 위해 import
 import subprocess
 import librosa
 import shutil
+import requests
 
 # 로깅 설정
 logging.basicConfig(level=logging.INFO)
@@ -235,6 +236,48 @@ def get_workflow_path(input_type, person_count):
             return "/V2V_multi.json"
 
 
+def get_video_dimensions(video_path):
+    """ffprobe로 비디오의 width/height를 반환. 실패 시 (None, None)."""
+    try:
+        result = subprocess.run(
+            [
+                "ffprobe", "-v", "error",
+                "-select_streams", "v:0",
+                "-show_entries", "stream=width,height",
+                "-of", "json",
+                video_path,
+            ],
+            capture_output=True, text=True, timeout=30,
+        )
+        if result.returncode != 0:
+            logger.warning(f"ffprobe 실패: {result.stderr}")
+            return None, None
+        data = json.loads(result.stdout)
+        stream = data.get("streams", [{}])[0]
+        w, h = stream.get("width"), stream.get("height")
+        if w and h:
+            return int(w), int(h)
+        return None, None
+    except Exception as e:
+        logger.warning(f"ffprobe 비디오 dimension 계산 실패: {e}")
+        return None, None
+
+
+def upload_to_presigned_url(file_path, presigned_url, content_type="video/mp4"):
+    """결과 파일을 presigned PUT URL로 업로드."""
+    file_size = os.path.getsize(file_path)
+    logger.info(f"presigned PUT 시작: {file_path} ({file_size} bytes) -> {presigned_url[:80]}...")
+    with open(file_path, "rb") as f:
+        resp = requests.put(
+            presigned_url,
+            data=f,
+            headers={"Content-Type": content_type, "Content-Length": str(file_size)},
+            timeout=600,
+        )
+    resp.raise_for_status()
+    logger.info(f"✅ presigned PUT 완료: status={resp.status_code}")
+
+
 def get_audio_duration(audio_path):
     """오디오 파일의 길이(초)를 반환"""
     try:
@@ -288,8 +331,8 @@ def handler(job):
     logger.info(f"Received job input: {log_input}")
     task_id = f"task_{uuid.uuid4()}"
 
-    # 입력 타입과 인물 수 확인
-    input_type = job_input.get("input_type", "image")  # "image" 또는 "video"
+    # 입력 타입과 인물 수 확인 (V2V single을 기본으로)
+    input_type = job_input.get("input_type", "video")  # "image" 또는 "video"
     person_count = job_input.get("person_count", "single")  # "single" 또는 "multi"
 
     logger.info(f"워크플로우 타입: {input_type}, 인물 수: {person_count}")
@@ -378,9 +421,23 @@ def handler(job):
             logger.info("두 번째 오디오가 없어 첫 번째 오디오를 사용합니다.")
 
     # 필수 필드 검증 및 기본값 설정
-    prompt_text = job_input.get("prompt", "A person talking naturally")
-    width = job_input.get("width", 512)
-    height = job_input.get("height", 512)
+    prompt_text = job_input.get("prompt", "A person talking naturally.")
+
+    # width/height: 입력이 없으면 V2V의 경우 ffprobe로 소스 비디오에서 추출
+    width = job_input.get("width")
+    height = job_input.get("height")
+    if (width is None or height is None) and input_type == "video" and media_path:
+        probed_w, probed_h = get_video_dimensions(media_path)
+        if probed_w and probed_h:
+            width = width or probed_w
+            height = height or probed_h
+            logger.info(f"📐 입력 비디오에서 dimension 자동 감지: {width}x{height}")
+    if width is None:
+        width = 512
+        logger.info("width 입력/감지 실패. 기본값 512 사용.")
+    if height is None:
+        height = 512
+        logger.info("height 입력/감지 실패. 기본값 512 사용.")
 
     # max_frame 설정 (입력이 없으면 오디오 길이 기반으로 자동 계산)
     max_frame = job_input.get("max_frame")
@@ -544,6 +601,36 @@ def handler(job):
     if not os.path.exists(output_video_path):
         logger.error(f"출력 비디오 파일이 존재하지 않습니다: {output_video_path}")
         return {"error": f"비디오 파일을 찾을 수 없습니다: {output_video_path}"}
+
+    # 출력 모드 결정 우선순위: presigned PUT > network_volume > base64
+    output_presigned_url = job_input.get("output_presigned_url")
+    output_s3_key = job_input.get("output_s3_key")
+    correlation_job_id = job_input.get("job_id")
+
+    if output_presigned_url:
+        try:
+            upload_to_presigned_url(output_video_path, output_presigned_url)
+            return {
+                "status": "SUCCEEDED",
+                "output_s3_key": output_s3_key,
+                "job_id": correlation_job_id,
+            }
+        except requests.HTTPError as e:
+            logger.error(f"❌ presigned PUT HTTP 오류: {e} body={getattr(e.response,'text',None)}")
+            return {
+                "status": "FAILED",
+                "stage": "upload",
+                "error": f"presigned PUT failed: {e}",
+                "job_id": correlation_job_id,
+            }
+        except Exception as e:
+            logger.error(f"❌ presigned PUT 실패: {e}")
+            return {
+                "status": "FAILED",
+                "stage": "upload",
+                "error": str(e),
+                "job_id": correlation_job_id,
+            }
 
     # network_volume 파라미터 확인
     use_network_volume = job_input.get("network_volume", False)
