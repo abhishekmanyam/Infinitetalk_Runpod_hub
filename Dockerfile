@@ -1,18 +1,12 @@
-# Runtime image. Models come from a prebuilt models image (see models.Dockerfile)
-# so this Dockerfile rebuilds in minutes when only code changes.
-#
-# Build:
-#   docker build -t youruser/infinitetalk:single-1.0 \
-#     --build-arg MODELS_IMAGE=youruser/infinitetalk-models:single-1.0 .
-#   docker build -t youruser/infinitetalk:multi-1.0 \
-#     --build-arg MODELS_IMAGE=youruser/infinitetalk-models:multi-1.0 .
-
-# Set this to the tag you pushed via models.Dockerfile.
-# Override locally with: docker build --build-arg MODELS_IMAGE=...
-ARG MODELS_IMAGE=youruser/infinitetalk-models:single-1.0
-FROM ${MODELS_IMAGE} AS models
+# Self-contained runtime image. Models are downloaded in parallel inside the
+# build (download_models.py) so we stay under RunPod's 30-min build cap.
+# Set VARIANT=single (default) or multi to choose the InfiniteTalk weight.
 
 FROM wlsdml1114/engui_genai-base_blackwell:1.1 AS runtime
+
+ARG VARIANT=single
+ENV VARIANT=${VARIANT}
+ENV HF_HUB_ENABLE_HF_TRANSFER=1
 
 RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 
@@ -39,8 +33,10 @@ RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/kijai/ComfyUI-WanVideoWrapper && \
     pip install -r ComfyUI-WanVideoWrapper/requirements.txt
 
-# Models from the prebuilt models image. Single layer copy.
-COPY --from=models /models /ComfyUI/models
+# Parallel model download in a single layer.
+COPY download_models.py /tmp/download_models.py
+RUN MODELS_DIR=/ComfyUI/models python /tmp/download_models.py && \
+    rm /tmp/download_models.py
 
 COPY . .
 RUN chmod +x /entrypoint.sh
