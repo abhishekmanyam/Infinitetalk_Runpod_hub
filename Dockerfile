@@ -7,7 +7,9 @@
 #   docker build -t youruser/infinitetalk:multi-1.0 \
 #     --build-arg MODELS_IMAGE=youruser/infinitetalk-models:multi-1.0 .
 
-ARG MODELS_IMAGE
+# Set this to the tag you pushed via models.Dockerfile.
+# Override locally with: docker build --build-arg MODELS_IMAGE=...
+ARG MODELS_IMAGE=youruser/infinitetalk-models:single-1.0
 FROM ${MODELS_IMAGE} AS models
 
 FROM wlsdml1114/engui_genai-base_blackwell:1.1 AS runtime
