@@ -20,29 +20,39 @@ VARIANT = os.environ.get("VARIANT", "single").lower()
 if VARIANT not in ("single", "multi"):
     sys.exit(f"VARIANT must be 'single' or 'multi', got {VARIANT!r}")
 
+# Split into groups so the Dockerfile can fetch each as its own layer.
+# Smaller layers survive RunPod registry I/O hiccups better than one giant layer.
 # (repo_id, filename_in_repo, target_subdir, target_filename)
-SHARED = [
-    ("Kijai/WanVideo_comfy",
-     "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors",
-     "diffusion_models", "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors"),
-    ("Kijai/WanVideo_comfy",
-     "Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
-     "loras", "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors"),
-    ("Kijai/WanVideo_comfy",
-     "Wan2_1_VAE_bf16.safetensors",
-     "vae", "Wan2_1_VAE_bf16.safetensors"),
-    ("Kijai/WanVideo_comfy",
-     "umt5-xxl-enc-fp8_e4m3fn.safetensors",
-     "text_encoders", "umt5-xxl-enc-fp8_e4m3fn.safetensors"),
-    ("Comfy-Org/Wan_2.1_ComfyUI_repackaged",
-     "split_files/clip_vision/clip_vision_h.safetensors",
-     "clip_vision", "clip_vision_h.safetensors"),
-    ("Kijai/MelBandRoFormer_comfy",
-     "MelBandRoformer_fp16.safetensors",
-     "diffusion_models", "MelBandRoformer_fp16.safetensors"),
-]
+GROUPS = {
+    # ~15GB: I2V base model + step-distill lora
+    "base": [
+        ("Kijai/WanVideo_comfy",
+         "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors",
+         "diffusion_models", "Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors"),
+        ("Kijai/WanVideo_comfy",
+         "Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+         "loras", "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors"),
+    ],
+    # ~8GB: text encoder + VAE + clip vision + melband
+    "encoders": [
+        ("Kijai/WanVideo_comfy",
+         "Wan2_1_VAE_bf16.safetensors",
+         "vae", "Wan2_1_VAE_bf16.safetensors"),
+        ("Kijai/WanVideo_comfy",
+         "umt5-xxl-enc-fp8_e4m3fn.safetensors",
+         "text_encoders", "umt5-xxl-enc-fp8_e4m3fn.safetensors"),
+        ("Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+         "split_files/clip_vision/clip_vision_h.safetensors",
+         "clip_vision", "clip_vision_h.safetensors"),
+        ("Kijai/MelBandRoFormer_comfy",
+         "MelBandRoformer_fp16.safetensors",
+         "diffusion_models", "MelBandRoformer_fp16.safetensors"),
+    ],
+    # ~14GB: variant-specific InfiniteTalk weight (single XOR multi)
+    "infinitetalk": [],  # populated below from VARIANT
+}
 
-VARIANT_FILE = {
+_VARIANT_FILE = {
     "single": ("Kijai/WanVideo_comfy_fp8_scaled",
                "InfiniteTalk/Wan2_1-InfiniteTalk-Single_fp8_e4m3fn_scaled_KJ.safetensors",
                "diffusion_models",
@@ -52,6 +62,8 @@ VARIANT_FILE = {
                "diffusion_models",
                "Wan2_1-InfiniteTalk-Multi_fp8_e4m3fn_scaled_KJ.safetensors"),
 }
+GROUPS["infinitetalk"] = [_VARIANT_FILE[VARIANT]]
+GROUPS["all"] = GROUPS["base"] + GROUPS["encoders"] + GROUPS["infinitetalk"]
 
 
 def fetch(repo_id: str, src: str, subdir: str, dst_name: str) -> str:
@@ -69,8 +81,11 @@ def fetch(repo_id: str, src: str, subdir: str, dst_name: str) -> str:
 
 
 def main() -> None:
-    jobs = SHARED + [VARIANT_FILE[VARIANT]]
-    print(f"Downloading {len(jobs)} files (VARIANT={VARIANT}) -> {OUT}")
+    group = sys.argv[1] if len(sys.argv) > 1 else "all"
+    if group not in GROUPS:
+        sys.exit(f"unknown group {group!r}; choose from {sorted(GROUPS)}")
+    jobs = GROUPS[group]
+    print(f"Downloading {len(jobs)} files (VARIANT={VARIANT}, group={group}) -> {OUT}")
     failures = []
     with ThreadPoolExecutor(max_workers=4) as pool:
         futures = {pool.submit(fetch, *j): j for j in jobs}

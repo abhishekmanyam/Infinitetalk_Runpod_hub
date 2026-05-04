@@ -33,10 +33,14 @@ RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/kijai/ComfyUI-WanVideoWrapper && \
     pip install -r ComfyUI-WanVideoWrapper/requirements.txt
 
-# Parallel model download in a single layer.
+# Models split across three layers so a single registry I/O hiccup only retries one chunk.
 COPY download_models.py /tmp/download_models.py
-RUN MODELS_DIR=/ComfyUI/models python /tmp/download_models.py && \
-    rm -rf /tmp/download_models.py /root/.cache/huggingface
+ENV MODELS_DIR=/ComfyUI/models
+
+RUN python /tmp/download_models.py base && rm -rf /root/.cache/huggingface
+RUN python /tmp/download_models.py encoders && rm -rf /root/.cache/huggingface
+RUN python /tmp/download_models.py infinitetalk && \
+    rm -rf /root/.cache/huggingface /tmp/download_models.py
 
 COPY . .
 RUN chmod +x /entrypoint.sh
