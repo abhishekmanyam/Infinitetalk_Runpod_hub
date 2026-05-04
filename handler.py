@@ -499,34 +499,46 @@ def handler(job):
     prompt = load_workflow(workflow_path)
 
     # ------------------------------------------------------------------
-    # 동적 Force Offload 설정
+    # 동적 파라미터 주입 (sampler / multitalk 오디오)
     # ------------------------------------------------------------------
-    # 1. 입력에서 force_offload 읽기 (기본값 True: 작은 GPU에서 OOM 방지)
-    force_offload = job_input.get("force_offload", True)
-    logger.info(f"🔧 설정: force_offload={force_offload}")
+    def find_node_by_class(class_type, preferred_id=None):
+        if preferred_id and prompt.get(preferred_id, {}).get("class_type") == class_type:
+            return preferred_id
+        for nid, ndata in prompt.items():
+            if ndata.get("class_type") == class_type:
+                return nid
+        return None
 
-    # 2. WanVideoSampler 노드에 force_offload 파라미터 주입
-    sampler_node_id = None
-    preferred_id = "128"
+    def set_node_input(class_type, key, value, preferred_id=None):
+        nid = find_node_by_class(class_type, preferred_id)
+        if not nid:
+            logger.warning(f"⚠️ {class_type} 노드를 찾을 수 없음 ({key}={value} 스킵)")
+            return False
+        prompt[nid].setdefault("inputs", {})[key] = value
+        logger.info(f"✅ {class_type} ({nid}).{key} = {value}")
+        return True
 
-    # 효율성을 위해 먼저 선호 ID(128) 확인
-    if preferred_id in prompt and prompt[preferred_id].get("class_type") == "WanVideoSampler":
-        sampler_node_id = preferred_id
-    else:
-        # ID가 다른 경우 class type으로 검색 (폴백)
-        for node_id, node_data in prompt.items():
-            if node_data.get("class_type") == "WanVideoSampler":
-                sampler_node_id = node_id
-                break
+    # WanVideoSampler 파라미터
+    force_offload = job_input.get("force_offload", False)
+    set_node_input("WanVideoSampler", "force_offload", force_offload, preferred_id="128")
+    if "steps" in job_input:
+        set_node_input("WanVideoSampler", "steps", int(job_input["steps"]), preferred_id="128")
+    if "cfg" in job_input:
+        set_node_input("WanVideoSampler", "cfg", float(job_input["cfg"]), preferred_id="128")
+    if "shift" in job_input:
+        set_node_input("WanVideoSampler", "shift", float(job_input["shift"]), preferred_id="128")
+    if "seed" in job_input:
+        set_node_input("WanVideoSampler", "seed", int(job_input["seed"]), preferred_id="128")
 
-    # sampler 노드를 찾은 경우 force_offload 파라미터 주입
-    if sampler_node_id:
-        # setdefault를 사용하여 'inputs' 딕셔너리가 없으면 생성
-        inputs = prompt[sampler_node_id].setdefault("inputs", {})
-        inputs["force_offload"] = force_offload
-        logger.info(f"✅ 노드 {sampler_node_id} (WanVideoSampler) 업데이트됨: force_offload={force_offload}")
-    else:
-        logger.warning("⚠️ 경고: WanVideoSampler 노드를 찾을 수 없습니다. 워크플로우 기본값을 사용합니다.")
+    # MultiTalkWav2VecEmbeds 파라미터 (오디오 가이던스 - 립 싱크 품질의 핵심)
+    audio_cfg_scale = float(job_input.get("audio_cfg_scale", 3.0))
+    audio_scale = float(job_input.get("audio_scale", 1.5))
+    set_node_input("MultiTalkWav2VecEmbeds", "audio_cfg_scale", audio_cfg_scale, preferred_id="194")
+    set_node_input("MultiTalkWav2VecEmbeds", "audio_scale", audio_scale, preferred_id="194")
+
+    # WanVideoImageToVideoMultiTalk: force_offload off (A100 80GB에서 빠름)
+    multitalk_offload = job_input.get("multitalk_force_offload", force_offload)
+    set_node_input("WanVideoImageToVideoMultiTalk", "force_offload", multitalk_offload, preferred_id="192")
     # ------------------------------------------------------------------
 
     # 파일 존재 여부 확인
