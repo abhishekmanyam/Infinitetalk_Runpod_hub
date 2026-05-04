@@ -263,26 +263,6 @@ def get_video_dimensions(video_path):
         return None, None
 
 
-def upscale_video(input_path, output_width, output_height):
-    """ffmpeg lanczos upscale. Returns new path; raises on failure."""
-    output_path = input_path.replace(".mp4", f"_upscaled_{output_width}x{output_height}.mp4")
-    if output_path == input_path:
-        output_path = input_path + ".upscaled.mp4"
-    cmd = [
-        "ffmpeg", "-y", "-i", input_path,
-        "-vf", f"scale={output_width}:{output_height}:flags=lanczos",
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
-        "-c:a", "copy",
-        output_path,
-    ]
-    logger.info(f"🔼 ffmpeg upscale: {input_path} -> {output_width}x{output_height}")
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
-    if result.returncode != 0:
-        raise Exception(f"ffmpeg upscale failed: {result.stderr[-500:]}")
-    logger.info(f"✅ upscale done: {output_path} ({os.path.getsize(output_path)} bytes)")
-    return output_path
-
-
 def upload_to_presigned_url(file_path, presigned_url, content_type="video/mp4"):
     """결과 파일을 presigned PUT URL로 업로드."""
     file_size = os.path.getsize(file_path)
@@ -446,7 +426,6 @@ def handler(job):
     # width/height: 입력이 없으면 V2V의 경우 ffprobe로 소스 비디오에서 추출
     width = job_input.get("width")
     height = job_input.get("height")
-    probed_w, probed_h = (None, None)
     if (width is None or height is None) and input_type == "video" and media_path:
         probed_w, probed_h = get_video_dimensions(media_path)
         if probed_w and probed_h:
@@ -459,22 +438,6 @@ def handler(job):
     if height is None:
         height = 512
         logger.info("height 입력/감지 실패. 기본값 512 사용.")
-
-    # 추론 해상도 자동 캡 (비용 절감). 캡을 넘으면 비율 유지하며 축소 + 출력은 원본 크기로 업스케일
-    # 기본값 512 (model native ~480p). 끄려면 max_inference_width=0 전달.
-    max_inference_width = int(job_input.get("max_inference_width", 512))
-    if max_inference_width > 0 and width > max_inference_width:
-        original_w, original_h = width, height
-        scale = max_inference_width / width
-        width = max_inference_width - (max_inference_width % 8)
-        height = max(int(height * scale) // 8 * 8, 8)
-        logger.info(
-            f"🔽 추론 해상도 자동 캡: {original_w}x{original_h} -> {width}x{height} "
-            f"(출력은 {original_w}x{original_h}로 업스케일)"
-        )
-        # 호출자가 output_width/height를 지정하지 않았으면 원본 크기를 자동 설정
-        job_input.setdefault("output_width", original_w)
-        job_input.setdefault("output_height", original_h)
 
     # max_frame 설정 (입력이 없으면 오디오 길이 기반으로 자동 계산)
     max_frame = job_input.get("max_frame")
@@ -499,46 +462,34 @@ def handler(job):
     prompt = load_workflow(workflow_path)
 
     # ------------------------------------------------------------------
-    # 동적 파라미터 주입 (sampler / multitalk 오디오)
+    # 동적 Force Offload 설정
     # ------------------------------------------------------------------
-    def find_node_by_class(class_type, preferred_id=None):
-        if preferred_id and prompt.get(preferred_id, {}).get("class_type") == class_type:
-            return preferred_id
-        for nid, ndata in prompt.items():
-            if ndata.get("class_type") == class_type:
-                return nid
-        return None
+    # 1. 입력에서 force_offload 읽기 (기본값 True: 작은 GPU에서 OOM 방지)
+    force_offload = job_input.get("force_offload", True)
+    logger.info(f"🔧 설정: force_offload={force_offload}")
 
-    def set_node_input(class_type, key, value, preferred_id=None):
-        nid = find_node_by_class(class_type, preferred_id)
-        if not nid:
-            logger.warning(f"⚠️ {class_type} 노드를 찾을 수 없음 ({key}={value} 스킵)")
-            return False
-        prompt[nid].setdefault("inputs", {})[key] = value
-        logger.info(f"✅ {class_type} ({nid}).{key} = {value}")
-        return True
+    # 2. WanVideoSampler 노드에 force_offload 파라미터 주입
+    sampler_node_id = None
+    preferred_id = "128"
 
-    # WanVideoSampler 파라미터
-    force_offload = job_input.get("force_offload", False)
-    set_node_input("WanVideoSampler", "force_offload", force_offload, preferred_id="128")
-    if "steps" in job_input:
-        set_node_input("WanVideoSampler", "steps", int(job_input["steps"]), preferred_id="128")
-    if "cfg" in job_input:
-        set_node_input("WanVideoSampler", "cfg", float(job_input["cfg"]), preferred_id="128")
-    if "shift" in job_input:
-        set_node_input("WanVideoSampler", "shift", float(job_input["shift"]), preferred_id="128")
-    if "seed" in job_input:
-        set_node_input("WanVideoSampler", "seed", int(job_input["seed"]), preferred_id="128")
+    # 효율성을 위해 먼저 선호 ID(128) 확인
+    if preferred_id in prompt and prompt[preferred_id].get("class_type") == "WanVideoSampler":
+        sampler_node_id = preferred_id
+    else:
+        # ID가 다른 경우 class type으로 검색 (폴백)
+        for node_id, node_data in prompt.items():
+            if node_data.get("class_type") == "WanVideoSampler":
+                sampler_node_id = node_id
+                break
 
-    # MultiTalkWav2VecEmbeds 파라미터 (오디오 가이던스 - 립 싱크 품질의 핵심)
-    audio_cfg_scale = float(job_input.get("audio_cfg_scale", 3.0))
-    audio_scale = float(job_input.get("audio_scale", 1.5))
-    set_node_input("MultiTalkWav2VecEmbeds", "audio_cfg_scale", audio_cfg_scale, preferred_id="194")
-    set_node_input("MultiTalkWav2VecEmbeds", "audio_scale", audio_scale, preferred_id="194")
-
-    # WanVideoImageToVideoMultiTalk: force_offload off (A100 80GB에서 빠름)
-    multitalk_offload = job_input.get("multitalk_force_offload", force_offload)
-    set_node_input("WanVideoImageToVideoMultiTalk", "force_offload", multitalk_offload, preferred_id="192")
+    # sampler 노드를 찾은 경우 force_offload 파라미터 주입
+    if sampler_node_id:
+        # setdefault를 사용하여 'inputs' 딕셔너리가 없으면 생성
+        inputs = prompt[sampler_node_id].setdefault("inputs", {})
+        inputs["force_offload"] = force_offload
+        logger.info(f"✅ 노드 {sampler_node_id} (WanVideoSampler) 업데이트됨: force_offload={force_offload}")
+    else:
+        logger.warning("⚠️ 경고: WanVideoSampler 노드를 찾을 수 없습니다. 워크플로우 기본값을 사용합니다.")
     # ------------------------------------------------------------------
 
     # 파일 존재 여부 확인
@@ -650,17 +601,6 @@ def handler(job):
     if not os.path.exists(output_video_path):
         logger.error(f"출력 비디오 파일이 존재하지 않습니다: {output_video_path}")
         return {"error": f"비디오 파일을 찾을 수 없습니다: {output_video_path}"}
-
-    # 옵션: 후처리 ffmpeg 업스케일 (저해상도로 생성 + 업스케일 = 비용 절감)
-    output_width = job_input.get("output_width")
-    output_height = job_input.get("output_height")
-    if output_width and output_height and (output_width != width or output_height != height):
-        try:
-            output_video_path = upscale_video(
-                output_video_path, int(output_width), int(output_height)
-            )
-        except Exception as e:
-            logger.error(f"❌ 업스케일 실패, 원본 사용: {e}")
 
     # 출력 모드 결정 우선순위: presigned PUT > network_volume > base64
     output_presigned_url = job_input.get("output_presigned_url")
