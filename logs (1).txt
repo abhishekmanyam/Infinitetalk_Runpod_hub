@@ -1,0 +1,9 @@
+2026-05-04T05:12:06Z worker is ready
+2026-05-04T05:14:03Z create container registry.runpod.net/abhishekmanyam-infinitetalk-runpod-hub-main-dockerfile:579d392f2
+2026-05-04T05:14:03Z 579d392f2 Pulling from abhishekmanyam-infinitetalk-runpod-hub-main-dockerfile
+2026-05-04T05:14:04Z Digest: sha256:344a82ffe997083497d86907e44f4f5db48f4a88a092472763b5b74f5ccbab4b
+2026-05-04T05:14:04Z Status: Image is up to date for registry.runpod.net/abhishekmanyam-infinitetalk-runpod-hub-main-dockerfile:579d392f2
+2026-05-04T05:14:04Z worker is ready
+2026-05-04T05:14:04Z start container for registry.runpod.net/abhishekmanyam-infinitetalk-runpod-hub-main-dockerfile:579d392f2: begin
+2026-05-04T05:24:22Z stop container 2d1585d1c23fe14eaaa17b4f6c749f63e54090e6fde19f6fcbd5649766e7b511
+2026-05-04T05:24:39Z remove container

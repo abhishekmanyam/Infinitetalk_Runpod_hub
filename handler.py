@@ -263,6 +263,26 @@ def get_video_dimensions(video_path):
         return None, None
 
 
+def upscale_video(input_path, output_width, output_height):
+    """ffmpeg lanczos upscale. Returns new path; raises on failure."""
+    output_path = input_path.replace(".mp4", f"_upscaled_{output_width}x{output_height}.mp4")
+    if output_path == input_path:
+        output_path = input_path + ".upscaled.mp4"
+    cmd = [
+        "ffmpeg", "-y", "-i", input_path,
+        "-vf", f"scale={output_width}:{output_height}:flags=lanczos",
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+        "-c:a", "copy",
+        output_path,
+    ]
+    logger.info(f"🔼 ffmpeg upscale: {input_path} -> {output_width}x{output_height}")
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+    if result.returncode != 0:
+        raise Exception(f"ffmpeg upscale failed: {result.stderr[-500:]}")
+    logger.info(f"✅ upscale done: {output_path} ({os.path.getsize(output_path)} bytes)")
+    return output_path
+
+
 def upload_to_presigned_url(file_path, presigned_url, content_type="video/mp4"):
     """결과 파일을 presigned PUT URL로 업로드."""
     file_size = os.path.getsize(file_path)
@@ -426,6 +446,7 @@ def handler(job):
     # width/height: 입력이 없으면 V2V의 경우 ffprobe로 소스 비디오에서 추출
     width = job_input.get("width")
     height = job_input.get("height")
+    probed_w, probed_h = (None, None)
     if (width is None or height is None) and input_type == "video" and media_path:
         probed_w, probed_h = get_video_dimensions(media_path)
         if probed_w and probed_h:
@@ -438,6 +459,22 @@ def handler(job):
     if height is None:
         height = 512
         logger.info("height 입력/감지 실패. 기본값 512 사용.")
+
+    # 추론 해상도 자동 캡 (비용 절감). 캡을 넘으면 비율 유지하며 축소 + 출력은 원본 크기로 업스케일
+    # 기본값 512 (model native ~480p). 끄려면 max_inference_width=0 전달.
+    max_inference_width = int(job_input.get("max_inference_width", 512))
+    if max_inference_width > 0 and width > max_inference_width:
+        original_w, original_h = width, height
+        scale = max_inference_width / width
+        width = max_inference_width - (max_inference_width % 8)
+        height = max(int(height * scale) // 8 * 8, 8)
+        logger.info(
+            f"🔽 추론 해상도 자동 캡: {original_w}x{original_h} -> {width}x{height} "
+            f"(출력은 {original_w}x{original_h}로 업스케일)"
+        )
+        # 호출자가 output_width/height를 지정하지 않았으면 원본 크기를 자동 설정
+        job_input.setdefault("output_width", original_w)
+        job_input.setdefault("output_height", original_h)
 
     # max_frame 설정 (입력이 없으면 오디오 길이 기반으로 자동 계산)
     max_frame = job_input.get("max_frame")
@@ -601,6 +638,17 @@ def handler(job):
     if not os.path.exists(output_video_path):
         logger.error(f"출력 비디오 파일이 존재하지 않습니다: {output_video_path}")
         return {"error": f"비디오 파일을 찾을 수 없습니다: {output_video_path}"}
+
+    # 옵션: 후처리 ffmpeg 업스케일 (저해상도로 생성 + 업스케일 = 비용 절감)
+    output_width = job_input.get("output_width")
+    output_height = job_input.get("output_height")
+    if output_width and output_height and (output_width != width or output_height != height):
+        try:
+            output_video_path = upscale_video(
+                output_video_path, int(output_width), int(output_height)
+            )
+        except Exception as e:
+            logger.error(f"❌ 업스케일 실패, 원본 사용: {e}")
 
     # 출력 모드 결정 우선순위: presigned PUT > network_volume > base64
     output_presigned_url = job_input.get("output_presigned_url")

@@ -1,208 +1,333 @@
-2026-05-04T03:57:57.611833957Z ==========
-2026-05-04T03:57:57.611836392Z == CUDA ==
-2026-05-04T03:57:57.611838225Z ==========
-2026-05-04T03:57:57.614660429Z CUDA Version 12.8.1
-2026-05-04T03:57:57.617317921Z Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-2026-05-04T03:57:57.618763413Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
-2026-05-04T03:57:57.618766178Z By pulling and using the container, you accept the terms and conditions of this license:
-2026-05-04T03:57:57.618768152Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
-2026-05-04T03:57:57.618771728Z A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
-2026-05-04T03:57:57.634372662Z Starting ComfyUI in the background...
-2026-05-04T03:57:57.634700461Z Waiting for ComfyUI to be ready...
-2026-05-04T03:57:57.645048788Z Waiting for ComfyUI... (0/120)
-2026-05-04T03:57:57.985463565Z setup plugin alembic.autogenerate.schemas
-2026-05-04T03:57:57.985538055Z setup plugin alembic.autogenerate.tables
-2026-05-04T03:57:57.985542564Z setup plugin alembic.autogenerate.types
-2026-05-04T03:57:57.985551892Z setup plugin alembic.autogenerate.constraints
-2026-05-04T03:57:57.985555629Z setup plugin alembic.autogenerate.defaults
-2026-05-04T03:57:57.985561270Z setup plugin alembic.autogenerate.comments
-2026-05-04T03:57:59.170875425Z [START] Security scan
-2026-05-04T03:57:59.170895754Z [DONE] Security scan
-2026-05-04T03:57:59.170919398Z ## ComfyUI-Manager: installing dependencies done.
-2026-05-04T03:57:59.171022193Z ** ComfyUI startup time: 2026-05-04 03:57:59.170
-2026-05-04T03:57:59.171120969Z ** Platform: Linux
-2026-05-04T03:57:59.171243380Z ** Python version: 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]
-2026-05-04T03:57:59.171341596Z ** Python executable: /usr/bin/python
-2026-05-04T03:57:59.171451965Z ** ComfyUI Path: /ComfyUI
-2026-05-04T03:57:59.171557264Z ** ComfyUI Base Folder Path: /ComfyUI
-2026-05-04T03:57:59.171668283Z ** User directory: /ComfyUI/user
-2026-05-04T03:57:59.171805803Z ** ComfyUI-Manager config path: /ComfyUI/user/__manager/config.ini
-2026-05-04T03:57:59.171928225Z ** Log path: /ComfyUI/user/comfyui.log
-2026-05-04T03:57:59.657685735Z Waiting for ComfyUI... (2/120)
-2026-05-04T03:57:59.879671671Z /usr/local/lib/python3.10/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
-2026-05-04T03:57:59.879694735Z   warnings.warn(
-2026-05-04T03:57:59.879702269Z Prestartup times for custom nodes:
-2026-05-04T03:57:59.879871369Z    1.8 seconds: /ComfyUI/custom_nodes/ComfyUI-Manager
-2026-05-04T03:58:01.671081957Z Waiting for ComfyUI... (4/120)
-2026-05-04T03:58:02.427705409Z WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
-2026-05-04T03:58:02.427843320Z Found comfy_kitchen backend cuda: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_nvfp4']}
-2026-05-04T03:58:02.427879849Z Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8']}
-2026-05-04T03:58:02.427922309Z Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_mxfp8', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_mxfp8', 'scaled_mm_nvfp4']}
-2026-05-04T03:58:02.433565965Z Checkpoint files will always be loaded safely.
-2026-05-04T03:58:02.660758531Z Total VRAM 81156 MB, total RAM 2064036 MB
-2026-05-04T03:58:02.660841698Z pytorch version: 2.9.1+cu128
-2026-05-04T03:58:03.099537339Z xformers version: 0.0.33.post2
-2026-05-04T03:58:03.099753187Z Set vram state to: NORMAL_VRAM
-2026-05-04T03:58:03.099833058Z Device: cuda:0 NVIDIA A100-SXM4-80GB : cudaMallocAsync
-2026-05-04T03:58:03.099945611Z Using async weight offloading with 2 streams
-2026-05-04T03:58:03.100164775Z Enabled pinned memory 1857632.0
-2026-05-04T03:58:03.112411900Z working around nvidia conv3d memory bug.
-2026-05-04T03:58:03.332575813Z Using sage attention
-2026-05-04T03:58:03.685438575Z Waiting for ComfyUI... (6/120)
-2026-05-04T03:58:05.035978900Z aimdo: /project/src-posix/cuda-funchooks.c:52:DEBUG:aimdo_setup_hooks: hooks successfully installed
-2026-05-04T03:58:05.036109307Z aimdo: /project/src/control.c:151:INFO:comfy-aimdo inited for GPU: NVIDIA A100-SXM4-80GB (VRAM: 81155 MB)
-2026-05-04T03:58:05.036470459Z DynamicVRAM support detected and enabled
-2026-05-04T03:58:05.036671469Z Python version: 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]
-2026-05-04T03:58:05.036747913Z ComfyUI version: 0.20.1
-2026-05-04T03:58:05.037585015Z comfy-aimdo version: 0.3.0
-2026-05-04T03:58:05.038023284Z comfy-kitchen version: 0.2.8
-2026-05-04T03:58:05.039407019Z ComfyUI frontend version: 1.42.15
-2026-05-04T03:58:05.040124044Z [Prompt Server] web root: /usr/local/lib/python3.10/dist-packages/comfyui_frontend_package/static
-2026-05-04T03:58:05.041429100Z Asset seeder disabled
-2026-05-04T03:58:05.698824788Z Waiting for ComfyUI... (8/120)
-2026-05-04T03:58:06.643774314Z ### Loading: ComfyUI-Manager (V3.40)
-2026-05-04T03:58:06.644127713Z [ComfyUI-Manager] network_mode: public
-2026-05-04T03:58:06.644261495Z [ComfyUI-Manager] ComfyUI per-queue preview override detected (PR #11261). Manager's preview method feature is disabled. Use ComfyUI's --preview-method CLI option or 'Settings > Execution > Live preview method'.
-2026-05-04T03:58:06.725149210Z ### ComfyUI Version: v0.20.1-43-gcea8d092 | Released on '2026-05-03'
-2026-05-04T03:58:06.803492014Z ComfyUI-GGUF: Allowing full torch compile
-2026-05-04T03:58:07.012268938Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
-2026-05-04T03:58:07.025076823Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
-2026-05-04T03:58:07.213884317Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
-2026-05-04T03:58:07.274935053Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
-2026-05-04T03:58:07.545363778Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
-2026-05-04T03:58:07.710760600Z Waiting for ComfyUI... (10/120)
-2026-05-04T03:58:08.205286131Z WanVideoWrapper WARNING: FantasyPortrait nodes not available: No module named 'onnx'
-2026-05-04T03:58:08.249269683Z Import times for custom nodes:
-2026-05-04T03:58:08.249340646Z    0.0 seconds: /ComfyUI/custom_nodes/websocket_image_save.py
-2026-05-04T03:58:08.249402463Z    0.0 seconds: /ComfyUI/custom_nodes/ComfyUI-wanBlockswap
-2026-05-04T03:58:08.249423633Z    0.0 seconds: /ComfyUI/custom_nodes/ComfyUI-MelBandRoFormer
-2026-05-04T03:58:08.249461715Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-GGUF
-2026-05-04T03:58:08.249493345Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-Manager
-2026-05-04T03:58:08.249526858Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-KJNodes
-2026-05-04T03:58:08.249567766Z    0.2 seconds: /ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
-2026-05-04T03:58:08.249607601Z    1.1 seconds: /ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper
-2026-05-04T03:58:08.254870607Z Context impl SQLiteImpl.
-2026-05-04T03:58:08.254927685Z Will assume non-transactional DDL.
-2026-05-04T03:58:08.260736643Z Context impl SQLiteImpl.
-2026-05-04T03:58:08.260781899Z Will assume non-transactional DDL.
-2026-05-04T03:58:08.266367414Z Running upgrade  -> 0001_assets, Initial assets schema
-2026-05-04T03:58:08.266380589Z Revision ID: 0001_assets
-2026-05-04T03:58:08.266384707Z Revises: None
-2026-05-04T03:58:08.266388574Z Create Date: 2025-12-10 00:00:00
-2026-05-04T03:58:08.293804887Z Running upgrade 0001_assets -> 0002_merge_to_asset_references, Merge AssetInfo and AssetCacheState into unified asset_references table.
-2026-05-04T03:58:08.315750891Z Running upgrade 0002_merge_to_asset_references -> 0003_add_metadata_job_id, Add system_metadata and job_id columns to asset_references.
-2026-05-04T03:58:08.315772291Z Change preview_id FK from assets.id to asset_references.id.
-2026-05-04T03:58:08.346763199Z Database upgraded from None to 0003_add_metadata_job_id
-2026-05-04T03:58:08.412677015Z Starting server
-2026-05-04T03:58:08.413102279Z To see the GUI go to: http://0.0.0.0:8188
-2026-05-04T03:58:08.413257232Z To see the GUI go to: http://[::]:8188
-2026-05-04T03:58:09.726128789Z ComfyUI is ready!
-2026-05-04T03:58:09.726181489Z Starting the handler...
-2026-05-04T03:58:09.948105318Z /usr/local/lib/python3.10/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
-2026-05-04T03:58:09.948119885Z   warnings.warn(
-2026-05-04T03:58:10.316506454Z FETCH ComfyRegistry Data: 5/143
-2026-05-04T03:58:11.292199692Z --- Starting Serverless Worker |  Version 1.8.1 ---
-2026-05-04T03:58:11.427808940Z {"requestId": null, "message": "Jobs in queue: 1", "level": "INFO"}
-2026-05-04T03:58:11.427840891Z {"requestId": null, "message": "Jobs in progress: 1", "level": "INFO"}
-2026-05-04T03:58:11.427921924Z {"requestId": "c6923a22-a4c0-451b-8380-6f2f9ef173ba-u2", "message": "Started.", "level": "INFO"}
-2026-05-04T03:58:11.428103857Z handler.py          :331  2026-05-04 03:58:11,427 Received job input: {'input_type': 'video', 'person_count': 'single', 'prompt': 'A person speaking naturally to camera, clear lip sync', 'video_url': 'https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4', 'wav_url': 'https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav'}
-2026-05-04T03:58:11.428161526Z handler.py          :338  2026-05-04 03:58:11,428 워크플로우 타입: video, 인물 수: single
-2026-05-04T03:58:11.428172618Z handler.py          :342  2026-05-04 03:58:11,428 사용할 워크플로우: /V2V_single.json
-2026-05-04T03:58:11.428217983Z handler.py          :90   2026-05-04 03:58:11,428 🌐 URL 입력 처리: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4
-2026-05-04T03:58:11.837957943Z handler.py          :46   2026-05-04 03:58:11,837 ✅ URL에서 파일을 성공적으로 다운로드했습니다: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4 -> /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_video.mp4
-2026-05-04T03:58:11.838035339Z handler.py          :90   2026-05-04 03:58:11,837 🌐 URL 입력 처리: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav
-2026-05-04T03:58:12.243792002Z handler.py          :46   2026-05-04 03:58:12,243 ✅ URL에서 파일을 성공적으로 다운로드했습니다: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav -> /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_audio.wav
-2026-05-04T03:58:12.305661685Z handler.py          :434  2026-05-04 03:58:12,305 📐 입력 비디오에서 dimension 자동 감지: 640x360
-2026-05-04T03:58:12.305726257Z handler.py          :445  2026-05-04 03:58:12,305 max_frame이 입력되지 않았습니다. 오디오 길이를 기반으로 자동 계산합니다.
-2026-05-04T03:58:13.679492165Z FETCH ComfyRegistry Data: 10/143
-2026-05-04T03:58:16.137862674Z handler.py          :299  2026-05-04 03:58:16,137 첫 번째 오디오 길이: 33.43초
-2026-05-04T03:58:16.137911677Z handler.py          :316  2026-05-04 03:58:16,137 가장 긴 오디오 길이: 33.43초, 계산된 max_frames: 916
-2026-05-04T03:58:16.137916676Z handler.py          :454  2026-05-04 03:58:16,137 워크플로우 설정: prompt='A person speaking naturally to camera, clear lip sync', width=640, height=360, max_frame=916
-2026-05-04T03:58:16.137925673Z handler.py          :457  2026-05-04 03:58:16,137 미디어 경로: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_video.mp4
-2026-05-04T03:58:16.137952114Z handler.py          :458  2026-05-04 03:58:16,137 오디오 경로: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_audio.wav
-2026-05-04T03:58:16.138215872Z handler.py          :469  2026-05-04 03:58:16,138 🔧 설정: force_offload=True
-2026-05-04T03:58:16.138250187Z handler.py          :490  2026-05-04 03:58:16,138 ✅ 노드 128 (WanVideoSampler) 업데이트됨: force_offload=True
-2026-05-04T03:58:16.138291034Z handler.py          :508  2026-05-04 03:58:16,138 미디어 파일 크기: 3589410 bytes
-2026-05-04T03:58:16.138310972Z handler.py          :509  2026-05-04 03:58:16,138 오디오 파일 크기: 5897486 bytes
-2026-05-04T03:58:16.138328795Z handler.py          :540  2026-05-04 03:58:16,138 Connecting to WebSocket: ws://127.0.0.1:8188/ws?clientId=1f4f556d-8cf8-41e9-97c0-7c7ac71e642b
-2026-05-04T03:58:16.138333835Z handler.py          :544  2026-05-04 03:58:16,138 Checking HTTP connection to: http://127.0.0.1:8188/
-2026-05-04T03:58:16.141940351Z handler.py          :553  2026-05-04 03:58:16,141 HTTP 연결 성공 (시도 1)
-2026-05-04T03:58:16.143585530Z handler.py          :573  2026-05-04 03:58:16,143 웹소켓 연결 성공 (시도 1)
-2026-05-04T03:58:16.143621808Z handler.py          :104  2026-05-04 03:58:16,143 Queueing prompt to: http://127.0.0.1:8188/prompt
-2026-05-04T03:58:16.144041732Z handler.py          :109  2026-05-04 03:58:16,143 워크플로우 노드 수: 32
-2026-05-04T03:58:16.144075225Z handler.py          :115  2026-05-04 03:58:16,143 비디오 노드(228) 설정: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_video.mp4
-2026-05-04T03:58:16.144086106Z handler.py          :118  2026-05-04 03:58:16,144 오디오 노드(125) 설정: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_audio.wav
-2026-05-04T03:58:16.144089963Z handler.py          :121  2026-05-04 03:58:16,144 텍스트 노드(241) 설정: A person speaking naturally to camera, clear lip sync
-2026-05-04T03:58:16.144959917Z got prompt
-2026-05-04T03:58:16.152486862Z handler.py          :140  2026-05-04 03:58:16,152 프롬프트 전송 성공: {'prompt_id': 'ef718c31-7f8e-47f5-9b90-4c9814322eaa', 'number': 0, 'node_errors': {}}
-2026-05-04T03:58:16.152512310Z handler.py          :169  2026-05-04 03:58:16,152 워크플로우 실행 시작: prompt_id=ef718c31-7f8e-47f5-9b90-4c9814322eaa
-2026-05-04T03:58:16.200232843Z handler.py          :179  2026-05-04 03:58:16,200 노드 실행 중: 125
-2026-05-04T03:58:16.334021873Z handler.py          :179  2026-05-04 03:58:16,333 노드 실행 중: 137
-2026-05-04T03:58:16.369249817Z Downloading Qwen model to: /ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
-2026-05-04T03:58:16.369869068Z /usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `snapshot_download`. Downloading to a local directory does not use symlinks anymore.
-2026-05-04T03:58:16.369894355Z   warnings.warn(
-2026-05-04T03:58:16.540501284Z HTTP Request: GET https://huggingface.co/api/models/TencentGameMate/chinese-wav2vec2-base/revision/main "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.612685791Z Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-05-04T03:58:16.623775218Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.639062669Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.663496184Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-05-04T03:58:16.676298378Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.691057099Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.713404603Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/pytorch_model.bin "HTTP/1.1 302 Found"
-2026-05-04T03:58:16.715693899Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 307 Temporary Redirect"
-2026-05-04T03:58:16.716940124Z Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-05-04T03:58:16.717038390Z Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-05-04T03:58:16.730044619Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.740444193Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-05-04T03:58:16.743786850Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.753081776Z Fetching 5 files:  20%|██        | 1/5 [00:00<00:00,  5.15it/s]HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.767184247Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 200 OK"
-2026-05-04T03:58:16.785406574Z HTTP Request: GET https://huggingface.co/api/models/TencentGameMate/chinese-wav2vec2-base/xet-read-token/3991242c806928916fff4a8c0e4f76acf661b743 "HTTP/1.1 200 OK"
-2026-05-04T03:58:17.069979890Z FETCH ComfyRegistry Data: 15/143
-2026-05-04T03:58:18.614024486Z Fetching 5 files: 100%|██████████| 5/5 [00:02<00:00,  2.35it/s]Fetching 5 files: 100%|██████████| 5/5 [00:02<00:00,  2.43it/s]
-2026-05-04T03:58:18.785564719Z Loading weights:   0%|          | 0/211 [00:00<?, ?it/s]Loading weights: 100%|██████████| 211/211 [00:00<00:00, 19536.38it/s]
-2026-05-04T03:58:18.872544446Z [transformers] [1mWav2Vec2Model LOAD REPORT[0m from: /ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
-2026-05-04T03:58:18.872584291Z Key                          | Status     |  |
-2026-05-04T03:58:18.872588569Z -----------------------------+------------+--+-
-2026-05-04T03:58:18.872592497Z quantizer.weight_proj.weight | UNEXPECTED |  |
-2026-05-04T03:58:18.872596584Z project_hid.weight           | UNEXPECTED |  |
-2026-05-04T03:58:18.872600291Z project_q.bias               | UNEXPECTED |  |
-2026-05-04T03:58:18.872604479Z project_q.weight             | UNEXPECTED |  |
-2026-05-04T03:58:18.872608597Z quantizer.weight_proj.bias   | UNEXPECTED |  |
-2026-05-04T03:58:18.872611893Z quantizer.codevectors        | UNEXPECTED |  |
-2026-05-04T03:58:18.872615190Z project_hid.bias             | UNEXPECTED |  |
-2026-05-04T03:58:18.872622032Z Notes:
-2026-05-04T03:58:18.872626291Z - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
-2026-05-04T03:58:19.636527927Z handler.py          :179  2026-05-04 03:58:19,636 노드 실행 중: 270
-2026-05-04T03:58:19.638072837Z handler.py          :179  2026-05-04 03:58:19,637 노드 실행 중: 303
-2026-05-04T03:58:19.757912434Z /usr/local/lib/python3.10/dist-packages/torch/functional.py:681: UserWarning: A window was not provided. A rectangular window will be applied,which is known to cause spectral leakage. Other windows such as torch.hann_window or torch.hamming_window are recommended to reduce spectral leakage.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at /pytorch/aten/src/ATen/native/SpectralOps.cpp:836.)
-2026-05-04T03:58:19.757944314Z   return _VF.stft(  # type: ignore[attr-defined]
-2026-05-04T03:58:20.609634736Z FETCH ComfyRegistry Data: 20/143
-2026-05-04T03:58:20.891056116Z WARNING path /ComfyUI/models/diffusion_models/MelBandRoformer_fp16.safetensors exists but doesn't link anywhere, skipping.
-2026-05-04T03:58:20.891432968Z !!! Exception during processing !!! Model in folder 'diffusion_models' with filename 'MelBandRoformer_fp16.safetensors' not found.
-2026-05-04T03:58:20.892307040Z Traceback (most recent call last):
-2026-05-04T03:58:20.892326446Z   File "/ComfyUI/execution.py", line 535, in execute
-2026-05-04T03:58:20.892331406Z     output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)
-2026-05-04T03:58:20.892336375Z   File "/ComfyUI/execution.py", line 335, in get_output_data
-2026-05-04T03:58:20.892340623Z     return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)
-2026-05-04T03:58:20.892344681Z   File "/ComfyUI/execution.py", line 309, in _async_map_node_over_list
-2026-05-04T03:58:20.892349730Z     await process_inputs(input_dict, i)
-2026-05-04T03:58:20.892353287Z   File "/ComfyUI/execution.py", line 297, in process_inputs
-2026-05-04T03:58:20.892357044Z     result = f(**inputs)
-2026-05-04T03:58:20.892361092Z   File "/ComfyUI/custom_nodes/ComfyUI-MelBandRoFormer/nodes.py", line 67, in loadmodel
-2026-05-04T03:58:20.892370299Z     model_path = folder_paths.get_full_path_or_raise("diffusion_models", model_name)
-2026-05-04T03:58:20.892374157Z   File "/ComfyUI/folder_paths.py", line 377, in get_full_path_or_raise
-2026-05-04T03:58:20.892378084Z     raise FileNotFoundError(f"Model in folder '{folder_name}' with filename '{filename}' not found.")
-2026-05-04T03:58:20.892381961Z FileNotFoundError: Model in folder 'diffusion_models' with filename 'MelBandRoformer_fp16.safetensors' not found.
-2026-05-04T03:58:20.893410986Z Prompt executed in 4.74 seconds
-2026-05-04T03:58:21.171294109Z handler.py          :181  2026-05-04 03:58:21,171 워크플로우 실행 완료
-2026-05-04T03:58:21.171391012Z handler.py          :186  2026-05-04 03:58:21,171 히스토리 조회 중: prompt_id=ef718c31-7f8e-47f5-9b90-4c9814322eaa
-2026-05-04T03:58:21.171414125Z handler.py          :162  2026-05-04 03:58:21,171 Getting history from: http://127.0.0.1:8188/history/ef718c31-7f8e-47f5-9b90-4c9814322eaa
-2026-05-04T03:58:21.176127112Z handler.py          :188  2026-05-04 03:58:21,176 출력 노드 수: 0
-2026-05-04T03:58:21.176175524Z handler.py          :216  2026-05-04 03:58:21,176 총 0개 노드에서 비디오 파일 경로 수집 완료
-2026-05-04T03:58:21.176697160Z handler.py          :582  2026-05-04 03:58:21,176 웹소켓 연결 종료
-2026-05-04T03:58:21.176752173Z handler.py          :586  2026-05-04 03:58:21,176 출력 비디오 검색 중...
-2026-05-04T03:58:21.176785406Z handler.py          :597  2026-05-04 03:58:21,176 출력 비디오를 찾을 수 없습니다. 모든 노드가 비어있습니다.
-2026-05-04T03:58:21.258336554Z {"requestId": "c6923a22-a4c0-451b-8380-6f2f9ef173ba-u2", "message": "Finished.", "level": "INFO"}
-2026-05-04T03:58:24.212414588Z FETCH ComfyRegistry Data: 25/143
-2026-05-04T03:58:27.580195441Z FETCH ComfyRegistry Data: 30/143
+2026-05-04T04:42:38.089318883Z ==========
+2026-05-04T04:42:38.089324053Z == CUDA ==
+2026-05-04T04:42:38.089326383Z ==========
+2026-05-04T04:42:38.096613838Z CUDA Version 12.8.1
+2026-05-04T04:42:38.098384372Z Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+2026-05-04T04:42:38.099995527Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+2026-05-04T04:42:38.099999257Z By pulling and using the container, you accept the terms and conditions of this license:
+2026-05-04T04:42:38.100001707Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+2026-05-04T04:42:38.100008037Z A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+2026-05-04T04:42:38.116591259Z Starting ComfyUI in the background...
+2026-05-04T04:42:38.116838146Z Waiting for ComfyUI to be ready...
+2026-05-04T04:42:38.131509984Z Waiting for ComfyUI... (0/120)
+2026-05-04T04:42:38.613503901Z setup plugin alembic.autogenerate.schemas
+2026-05-04T04:42:38.613535341Z setup plugin alembic.autogenerate.tables
+2026-05-04T04:42:38.613538841Z setup plugin alembic.autogenerate.types
+2026-05-04T04:42:38.613541631Z setup plugin alembic.autogenerate.constraints
+2026-05-04T04:42:38.613553081Z setup plugin alembic.autogenerate.defaults
+2026-05-04T04:42:38.613556211Z setup plugin alembic.autogenerate.comments
+2026-05-04T04:42:40.083419507Z [START] Security scan
+2026-05-04T04:42:40.083443757Z [DONE] Security scan
+2026-05-04T04:42:40.083447127Z ## ComfyUI-Manager: installing dependencies done.
+2026-05-04T04:42:40.083536046Z ** ComfyUI startup time: 2026-05-04 04:42:40.083
+2026-05-04T04:42:40.083591046Z ** Platform: Linux
+2026-05-04T04:42:40.083771044Z ** Python version: 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]
+2026-05-04T04:42:40.083871663Z ** Python executable: /usr/bin/python
+2026-05-04T04:42:40.084027022Z ** ComfyUI Path: /ComfyUI
+2026-05-04T04:42:40.084149401Z ** ComfyUI Base Folder Path: /ComfyUI
+2026-05-04T04:42:40.084308599Z ** User directory: /ComfyUI/user
+2026-05-04T04:42:40.084546607Z ** ComfyUI-Manager config path: /ComfyUI/user/__manager/config.ini
+2026-05-04T04:42:40.084851774Z ** Log path: /ComfyUI/user/comfyui.log
+2026-05-04T04:42:40.143023342Z Waiting for ComfyUI... (2/120)
+2026-05-04T04:42:40.916001800Z /usr/local/lib/python3.10/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+2026-05-04T04:42:40.916018919Z   warnings.warn(
+2026-05-04T04:42:40.916025319Z Prestartup times for custom nodes:
+2026-05-04T04:42:40.916084249Z    2.2 seconds: /ComfyUI/custom_nodes/ComfyUI-Manager
+2026-05-04T04:42:42.154765858Z Waiting for ComfyUI... (4/120)
+2026-05-04T04:42:44.165547563Z Waiting for ComfyUI... (6/120)
+2026-05-04T04:42:44.601422263Z WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
+2026-05-04T04:42:44.601626872Z Found comfy_kitchen backend cuda: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_nvfp4']}
+2026-05-04T04:42:44.601634562Z Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8']}
+2026-05-04T04:42:44.601671851Z Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_mxfp8', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_mxfp8', 'scaled_mm_nvfp4']}
+2026-05-04T04:42:44.608981716Z Checkpoint files will always be loaded safely.
+2026-05-04T04:42:44.854853060Z Total VRAM 81156 MB, total RAM 1031853 MB
+2026-05-04T04:42:44.855028519Z pytorch version: 2.9.1+cu128
+2026-05-04T04:42:45.367713171Z xformers version: 0.0.33.post2
+2026-05-04T04:42:45.367899649Z Set vram state to: NORMAL_VRAM
+2026-05-04T04:42:45.368020608Z Device: cuda:0 NVIDIA A100-SXM4-80GB : cudaMallocAsync
+2026-05-04T04:42:45.368118217Z Using async weight offloading with 2 streams
+2026-05-04T04:42:45.368324725Z Enabled pinned memory 928667.0
+2026-05-04T04:42:45.383526598Z working around nvidia conv3d memory bug.
+2026-05-04T04:42:45.675361511Z Using sage attention
+2026-05-04T04:42:46.181932207Z Waiting for ComfyUI... (8/120)
+2026-05-04T04:42:47.953609516Z aimdo: /project/src-posix/cuda-funchooks.c:52:DEBUG:aimdo_setup_hooks: hooks successfully installed
+2026-05-04T04:42:47.953729875Z aimdo: /project/src/control.c:151:INFO:comfy-aimdo inited for GPU: NVIDIA A100-SXM4-80GB (VRAM: 81155 MB)
+2026-05-04T04:42:47.954051232Z DynamicVRAM support detected and enabled
+2026-05-04T04:42:47.954158061Z Python version: 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]
+2026-05-04T04:42:47.954284830Z ComfyUI version: 0.20.1
+2026-05-04T04:42:47.955875396Z comfy-aimdo version: 0.3.0
+2026-05-04T04:42:47.955895006Z comfy-kitchen version: 0.2.8
+2026-05-04T04:42:47.956845197Z ComfyUI frontend version: 1.42.15
+2026-05-04T04:42:47.961101719Z [Prompt Server] web root: /usr/local/lib/python3.10/dist-packages/comfyui_frontend_package/static
+2026-05-04T04:42:47.961117819Z Asset seeder disabled
+2026-05-04T04:42:48.211178576Z Waiting for ComfyUI... (10/120)
+2026-05-04T04:42:50.228853079Z Waiting for ComfyUI... (12/120)
+2026-05-04T04:42:50.280428486Z ### Loading: ComfyUI-Manager (V3.40)
+2026-05-04T04:42:50.280886632Z [ComfyUI-Manager] network_mode: public
+2026-05-04T04:42:50.281141680Z [ComfyUI-Manager] ComfyUI per-queue preview override detected (PR #11261). Manager's preview method feature is disabled. Use ComfyUI's --preview-method CLI option or 'Settings > Execution > Live preview method'.
+2026-05-04T04:42:50.344709260Z ### ComfyUI Version: v0.20.1-43-gcea8d092 | Released on '2026-05-03'
+2026-05-04T04:42:50.388175449Z ComfyUI-GGUF: Allowing full torch compile
+2026-05-04T04:42:50.582229719Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+2026-05-04T04:42:50.697409546Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+2026-05-04T04:42:50.779540930Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+2026-05-04T04:42:50.780740409Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+2026-05-04T04:42:51.309146859Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+2026-05-04T04:42:51.852412797Z WanVideoWrapper WARNING: FantasyPortrait nodes not available: No module named 'onnx'
+2026-05-04T04:42:51.899923720Z Import times for custom nodes:
+2026-05-04T04:42:51.899989669Z    0.0 seconds: /ComfyUI/custom_nodes/websocket_image_save.py
+2026-05-04T04:42:51.900002549Z    0.0 seconds: /ComfyUI/custom_nodes/ComfyUI-wanBlockswap
+2026-05-04T04:42:51.900065299Z    0.0 seconds: /ComfyUI/custom_nodes/ComfyUI-MelBandRoFormer
+2026-05-04T04:42:51.900097618Z    0.0 seconds: /ComfyUI/custom_nodes/ComfyUI-GGUF
+2026-05-04T04:42:51.900173638Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+2026-05-04T04:42:51.900213327Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-Manager
+2026-05-04T04:42:51.900238647Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-KJNodes
+2026-05-04T04:42:51.900329946Z    1.2 seconds: /ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper
+2026-05-04T04:42:51.907074786Z Context impl SQLiteImpl.
+2026-05-04T04:42:51.907177785Z Will assume non-transactional DDL.
+2026-05-04T04:42:51.913694847Z Context impl SQLiteImpl.
+2026-05-04T04:42:51.913726227Z Will assume non-transactional DDL.
+2026-05-04T04:42:51.919060419Z Running upgrade  -> 0001_assets, Initial assets schema
+2026-05-04T04:42:51.919083348Z Revision ID: 0001_assets
+2026-05-04T04:42:51.919089398Z Revises: None
+2026-05-04T04:42:51.919110848Z Create Date: 2025-12-10 00:00:00
+2026-05-04T04:42:51.947494124Z Running upgrade 0001_assets -> 0002_merge_to_asset_references, Merge AssetInfo and AssetCacheState into unified asset_references table.
+2026-05-04T04:42:51.970803275Z Running upgrade 0002_merge_to_asset_references -> 0003_add_metadata_job_id, Add system_metadata and job_id columns to asset_references.
+2026-05-04T04:42:51.970833974Z Change preview_id FK from assets.id to asset_references.id.
+2026-05-04T04:42:52.002718118Z Database upgraded from None to 0003_add_metadata_job_id
+2026-05-04T04:42:52.074837292Z Starting server
+2026-05-04T04:42:52.075262858Z To see the GUI go to: http://0.0.0.0:8188
+2026-05-04T04:42:52.075485426Z To see the GUI go to: http://[::]:8188
+2026-05-04T04:42:52.247345004Z ComfyUI is ready!
+2026-05-04T04:42:52.247429083Z Starting the handler...
+2026-05-04T04:42:52.483372527Z /usr/local/lib/python3.10/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+2026-05-04T04:42:52.483395277Z   warnings.warn(
+2026-05-04T04:42:53.985609563Z --- Starting Serverless Worker |  Version 1.8.1 ---
+2026-05-04T04:42:54.634574082Z {"requestId": null, "message": "Jobs in queue: 1", "level": "INFO"}
+2026-05-04T04:42:54.634620642Z {"requestId": null, "message": "Jobs in progress: 1", "level": "INFO"}
+2026-05-04T04:42:54.634790160Z {"requestId": "dd5940d5-c10f-4513-b3d7-efc705ac9579-u1", "message": "Started.", "level": "INFO"}
+2026-05-04T04:42:54.634940719Z handler.py          :331  2026-05-04 04:42:54,634 Received job input: {'input_type': 'video', 'person_count': 'single', 'prompt': 'A person speaking naturally to camera, clear lip sync', 'video_url': 'https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4', 'wav_url': 'https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav'}
+2026-05-04T04:42:54.635033838Z handler.py          :338  2026-05-04 04:42:54,634 워크플로우 타입: video, 인물 수: single
+2026-05-04T04:42:54.635049998Z handler.py          :342  2026-05-04 04:42:54,634 사용할 워크플로우: /V2V_single.json
+2026-05-04T04:42:54.635108977Z handler.py          :90   2026-05-04 04:42:54,635 🌐 URL 입력 처리: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4
+2026-05-04T04:42:55.262448211Z FETCH ComfyRegistry Data: 5/143
+2026-05-04T04:42:56.408834668Z handler.py          :46   2026-05-04 04:42:56,408 ✅ URL에서 파일을 성공적으로 다운로드했습니다: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4 -> /task_969b6261-7a0d-453c-9622-0a8a405f5494/input_video.mp4
+2026-05-04T04:42:56.408864028Z handler.py          :90   2026-05-04 04:42:56,408 🌐 URL 입력 처리: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav
+2026-05-04T04:42:58.477122367Z handler.py          :46   2026-05-04 04:42:58,476 ✅ URL에서 파일을 성공적으로 다운로드했습니다: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav -> /task_969b6261-7a0d-453c-9622-0a8a405f5494/input_audio.wav
+2026-05-04T04:42:58.551654368Z handler.py          :434  2026-05-04 04:42:58,551 📐 입력 비디오에서 dimension 자동 감지: 640x360
+2026-05-04T04:42:58.551718068Z handler.py          :445  2026-05-04 04:42:58,551 max_frame이 입력되지 않았습니다. 오디오 길이를 기반으로 자동 계산합니다.
+2026-05-04T04:42:59.528930983Z FETCH ComfyRegistry Data: 10/143
+2026-05-04T04:43:02.714565090Z handler.py          :299  2026-05-04 04:43:02,714 첫 번째 오디오 길이: 33.43초
+2026-05-04T04:43:02.714594970Z handler.py          :316  2026-05-04 04:43:02,714 가장 긴 오디오 길이: 33.43초, 계산된 max_frames: 916
+2026-05-04T04:43:02.714601030Z handler.py          :454  2026-05-04 04:43:02,714 워크플로우 설정: prompt='A person speaking naturally to camera, clear lip sync', width=640, height=360, max_frame=916
+2026-05-04T04:43:02.714619999Z handler.py          :457  2026-05-04 04:43:02,714 미디어 경로: /task_969b6261-7a0d-453c-9622-0a8a405f5494/input_video.mp4
+2026-05-04T04:43:02.714641089Z handler.py          :458  2026-05-04 04:43:02,714 오디오 경로: /task_969b6261-7a0d-453c-9622-0a8a405f5494/input_audio.wav
+2026-05-04T04:43:02.714987326Z handler.py          :469  2026-05-04 04:43:02,714 🔧 설정: force_offload=True
+2026-05-04T04:43:02.714998286Z handler.py          :490  2026-05-04 04:43:02,714 ✅ 노드 128 (WanVideoSampler) 업데이트됨: force_offload=True
+2026-05-04T04:43:02.715039796Z handler.py          :508  2026-05-04 04:43:02,714 미디어 파일 크기: 3589410 bytes
+2026-05-04T04:43:02.715084245Z handler.py          :509  2026-05-04 04:43:02,715 오디오 파일 크기: 5897486 bytes
+2026-05-04T04:43:02.715100565Z handler.py          :540  2026-05-04 04:43:02,715 Connecting to WebSocket: ws://127.0.0.1:8188/ws?clientId=da698d4a-5c99-45a4-b229-30dd3821fff7
+2026-05-04T04:43:02.715167674Z handler.py          :544  2026-05-04 04:43:02,715 Checking HTTP connection to: http://127.0.0.1:8188/
+2026-05-04T04:43:02.718454825Z handler.py          :553  2026-05-04 04:43:02,718 HTTP 연결 성공 (시도 1)
+2026-05-04T04:43:02.719993891Z handler.py          :573  2026-05-04 04:43:02,719 웹소켓 연결 성공 (시도 1)
+2026-05-04T04:43:02.720006481Z handler.py          :104  2026-05-04 04:43:02,719 Queueing prompt to: http://127.0.0.1:8188/prompt
+2026-05-04T04:43:02.720355127Z handler.py          :109  2026-05-04 04:43:02,720 워크플로우 노드 수: 32
+2026-05-04T04:43:02.720366017Z handler.py          :115  2026-05-04 04:43:02,720 비디오 노드(228) 설정: /task_969b6261-7a0d-453c-9622-0a8a405f5494/input_video.mp4
+2026-05-04T04:43:02.720461077Z handler.py          :118  2026-05-04 04:43:02,720 오디오 노드(125) 설정: /task_969b6261-7a0d-453c-9622-0a8a405f5494/input_audio.wav
+2026-05-04T04:43:02.720467556Z handler.py          :121  2026-05-04 04:43:02,720 텍스트 노드(241) 설정: A person speaking naturally to camera, clear lip sync
+2026-05-04T04:43:02.721129270Z got prompt
+2026-05-04T04:43:02.726078596Z handler.py          :140  2026-05-04 04:43:02,725 프롬프트 전송 성공: {'prompt_id': '83053e81-caf4-4b0a-9970-c58cfdcb21c4', 'number': 0, 'node_errors': {}}
+2026-05-04T04:43:02.726090736Z handler.py          :169  2026-05-04 04:43:02,726 워크플로우 실행 시작: prompt_id=83053e81-caf4-4b0a-9970-c58cfdcb21c4
+2026-05-04T04:43:02.761467919Z handler.py          :179  2026-05-04 04:43:02,761 노드 실행 중: 125
+2026-05-04T04:43:02.851834179Z handler.py          :179  2026-05-04 04:43:02,851 노드 실행 중: 137
+2026-05-04T04:43:02.901378554Z Downloading Qwen model to: /ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
+2026-05-04T04:43:02.901959148Z /usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `snapshot_download`. Downloading to a local directory does not use symlinks anymore.
+2026-05-04T04:43:02.901971998Z   warnings.warn(
+2026-05-04T04:43:03.197619907Z HTTP Request: GET https://huggingface.co/api/models/TencentGameMate/chinese-wav2vec2-base/revision/main "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.349032169Z Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T04:43:03.392043143Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.435033187Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.519440340Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T04:43:03.520410281Z Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-04T04:43:03.520421801Z Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-04T04:43:03.561834110Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.574407377Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T04:43:03.605421369Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.606990125Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-04T04:43:03.612179959Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T04:43:03.617764319Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.653235500Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.664807287Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.695672940Z Fetching 5 files:  20%|██        | 1/5 [00:00<00:01,  2.19it/s]HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 200 OK"
+2026-05-04T04:43:03.758723374Z FETCH ComfyRegistry Data: 15/143
+2026-05-04T04:43:03.759800475Z HTTP Request: GET https://huggingface.co/api/models/TencentGameMate/chinese-wav2vec2-base/xet-read-token/3991242c806928916fff4a8c0e4f76acf661b743 "HTTP/1.1 200 OK"
+2026-05-04T04:43:07.195372729Z Fetching 5 files: 100%|██████████| 5/5 [00:03<00:00,  1.22it/s]Fetching 5 files: 100%|██████████| 5/5 [00:03<00:00,  1.25it/s]
+2026-05-04T04:43:07.344301504Z Loading weights:   0%|          | 0/211 [00:00<?, ?it/s]Loading weights: 100%|██████████| 211/211 [00:00<00:00, 28361.69it/s]
+2026-05-04T04:43:07.464318027Z [transformers] [1mWav2Vec2Model LOAD REPORT[0m from: /ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
+2026-05-04T04:43:07.464347617Z Key                          | Status     |  |
+2026-05-04T04:43:07.464353297Z -----------------------------+------------+--+-
+2026-05-04T04:43:07.464355847Z quantizer.codevectors        | UNEXPECTED |  |
+2026-05-04T04:43:07.464358007Z quantizer.weight_proj.weight | UNEXPECTED |  |
+2026-05-04T04:43:07.464360517Z project_hid.bias             | UNEXPECTED |  |
+2026-05-04T04:43:07.464362947Z project_q.weight             | UNEXPECTED |  |
+2026-05-04T04:43:07.464366037Z project_q.bias               | UNEXPECTED |  |
+2026-05-04T04:43:07.464368417Z project_hid.weight           | UNEXPECTED |  |
+2026-05-04T04:43:07.464371397Z quantizer.weight_proj.bias   | UNEXPECTED |  |
+2026-05-04T04:43:07.464390957Z Notes:
+2026-05-04T04:43:07.464399207Z - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-04T04:43:08.360769177Z FETCH ComfyRegistry Data: 20/143
+2026-05-04T04:43:08.676513814Z handler.py          :179  2026-05-04 04:43:08,676 노드 실행 중: 270
+2026-05-04T04:43:08.677134519Z handler.py          :179  2026-05-04 04:43:08,677 노드 실행 중: 303
+2026-05-04T04:43:08.851987531Z /usr/local/lib/python3.10/dist-packages/torch/functional.py:681: UserWarning: A window was not provided. A rectangular window will be applied,which is known to cause spectral leakage. Other windows such as torch.hann_window or torch.hamming_window are recommended to reduce spectral leakage.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at /pytorch/aten/src/ATen/native/SpectralOps.cpp:836.)
+2026-05-04T04:43:08.852010841Z   return _VF.stft(  # type: ignore[attr-defined]
+2026-05-04T04:43:12.622167955Z FETCH ComfyRegistry Data: 25/143
+2026-05-04T04:43:14.581000225Z handler.py          :179  2026-05-04 04:43:14,576 노드 실행 중: 304
+2026-05-04T04:43:17.522377982Z FETCH ComfyRegistry Data: 30/143
+2026-05-04T04:43:17.851194614Z Processing chunks:   0%|          | 0/11 [00:00<?, ?it/s]Processing chunks:   9%|▉         | 1/11 [00:00<00:06,  1.61it/s]Processing chunks:  18%|█▊        | 2/11 [00:00<00:03,  2.51it/s]Processing chunks:  27%|██▋       | 3/11 [00:01<00:02,  3.07it/s]Processing chunks:  36%|███▋      | 4/11 [00:01<00:02,  3.42it/s]Processing chunks:  45%|████▌     | 5/11 [00:01<00:01,  3.64it/s]Processing chunks:  55%|█████▍    | 6/11 [00:01<00:01,  3.79it/s]Processing chunks:  64%|██████▎   | 7/11 [00:02<00:01,  3.90it/s]Processing chunks:  73%|███████▎  | 8/11 [00:02<00:00,  3.93it/s]Processing chunks:  82%|████████▏ | 9/11 [00:02<00:00,  4.01it/s]Processing chunks:  91%|█████████ | 10/11 [00:02<00:00,  4.07it/s]Processing chunks: 100%|██████████| 11/11 [00:03<00:00,  4.11it/s]Processing chunks: 100%|██████████| 11/11 [00:03<00:00,  3.62it/s]
+2026-05-04T04:43:18.205312577Z handler.py          :179  2026-05-04 04:43:18,205 노드 실행 중: 246
+2026-05-04T04:43:18.207218550Z handler.py          :179  2026-05-04 04:43:18,207 노드 실행 중: 245
+2026-05-04T04:43:18.209212072Z handler.py          :179  2026-05-04 04:43:18,209 노드 실행 중: 228
+2026-05-04T04:43:21.905720837Z FETCH ComfyRegistry Data: 35/143
+2026-05-04T04:43:26.333045056Z FETCH ComfyRegistry Data: 40/143
+2026-05-04T04:43:30.647792396Z FETCH ComfyRegistry Data: 45/143
+2026-05-04T04:43:35.199518830Z FETCH ComfyRegistry Data: 50/143
+2026-05-04T04:43:39.509451773Z FETCH ComfyRegistry Data: 55/143
+2026-05-04T04:43:44.461966894Z FETCH ComfyRegistry Data: 60/143
+2026-05-04T04:43:48.727126653Z FETCH ComfyRegistry Data: 65/143
+2026-05-04T04:43:53.232398134Z FETCH ComfyRegistry Data: 70/143
+2026-05-04T04:43:57.655464251Z FETCH ComfyRegistry Data: 75/143
+2026-05-04T04:44:02.080701800Z FETCH ComfyRegistry Data: 80/143
+2026-05-04T04:44:06.644200788Z FETCH ComfyRegistry Data: 85/143
+2026-05-04T04:44:07.937800185Z handler.py          :179  2026-05-04 04:44:07,937 노드 실행 중: 307
+2026-05-04T04:44:07.941735040Z handler.py          :179  2026-05-04 04:44:07,941 노드 실행 중: 194
+2026-05-04T04:44:08.498879913Z [transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-05-04T04:44:09.181194633Z [MultiTalk] --- Raw speaker lengths (samples) ---
+2026-05-04T04:44:09.181429261Z   speaker 1: 534913 samples (shape: torch.Size([1, 1, 534913]))
+2026-05-04T04:44:09.181528730Z [MultiTalk] Audio duration (801 frames) is shorter than requested (916 frames). Using 801 frames.
+2026-05-04T04:44:09.181636469Z [MultiTalk] total raw duration = 33.432s
+2026-05-04T04:44:09.181710028Z [MultiTalk] multi_audio_type=para | final waveform shape=torch.Size([1, 1, 534913]) | length=534913 samples | seconds=33.432s (expected max of raw)
+2026-05-04T04:44:09.197741274Z handler.py          :179  2026-05-04 04:44:09,196 노드 실행 중: 293
+2026-05-04T04:44:09.203313445Z handler.py          :179  2026-05-04 04:44:09,202 노드 실행 중: 230
+2026-05-04T04:44:11.240310804Z FETCH ComfyRegistry Data: 90/143
+2026-05-04T04:44:15.860934240Z FETCH ComfyRegistry Data: 95/143
+2026-05-04T04:44:20.507929819Z FETCH ComfyRegistry Data: 100/143
+2026-05-04T04:44:25.123692088Z FETCH ComfyRegistry Data: 105/143
+2026-05-04T04:44:29.588364303Z FETCH ComfyRegistry Data: 110/143
+2026-05-04T04:44:33.882382088Z FETCH ComfyRegistry Data: 115/143
+2026-05-04T04:44:38.350011757Z FETCH ComfyRegistry Data: 120/143
+2026-05-04T04:44:42.646139613Z FETCH ComfyRegistry Data: 125/143
+2026-05-04T04:44:46.967017567Z FETCH ComfyRegistry Data: 130/143
+2026-05-04T04:44:51.243121804Z FETCH ComfyRegistry Data: 135/143
+2026-05-04T04:44:55.841838776Z FETCH ComfyRegistry Data: 140/143
+2026-05-04T04:44:59.058868411Z FETCH ComfyRegistry Data [DONE]
+2026-05-04T04:44:59.542333355Z [ComfyUI-Manager] default cache updated: https://api.comfy.org/nodes
+2026-05-04T04:44:59.958985348Z FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json [DONE]
+2026-05-04T04:45:00.113985857Z [ComfyUI-Manager] All startup tasks have been completed.
+2026-05-04T04:45:13.011177217Z handler.py          :179  2026-05-04 04:45:13,010 노드 실행 중: 129
+2026-05-04T04:45:14.917330579Z handler.py          :179  2026-05-04 04:45:14,914 노드 실행 중: 229
+2026-05-04T04:45:45.155221435Z WanVAE encoding frames:   0%|          | 0/588 [00:00<?, ?it/s]WanVAE encoding frames:   0%|          | 1/588 [00:00<01:22,  7.14it/s]WanVAE encoding frames:   1%|          | 5/588 [00:00<00:28, 20.80it/s]WanVAE encoding frames:   1%|▏         | 8/588 [00:00<00:31, 18.44it/s]WanVAE encoding frames:   2%|▏         | 10/588 [00:00<00:32, 17.82it/s]WanVAE encoding frames:   2%|▏         | 12/588 [00:00<00:33, 17.39it/s]WanVAE encoding frames:   2%|▏         | 14/588 [00:00<00:33, 17.09it/s]WanVAE encoding frames:   3%|▎         | 16/588 [00:00<00:33, 16.95it/s]WanVAE encoding frames:   3%|▎         | 18/588 [00:01<00:33, 16.83it/s]WanVAE encoding frames:   3%|▎         | 20/588 [00:01<00:33, 16.75it/s]WanVAE encoding frames:   4%|▎         | 22/588 [00:01<00:33, 16.70it/s]WanVAE encoding frames:   4%|▍         | 24/588 [00:01<00:33, 16.66it/s]WanVAE encoding frames:   4%|▍         | 26/588 [00:01<00:33, 16.64it/s]WanVAE encoding frames:   5%|▍         | 28/588 [00:01<00:33, 16.62it/s]WanVAE encoding frames:   5%|▌         | 30/588 [00:01<00:33, 16.61it/s]WanVAE encoding frames:   5%|▌         | 32/588 [00:01<00:33, 16.61it/s]WanVAE encoding frames:   6%|▌         | 34/588 [00:02<00:33, 16.63it/s]WanVAE encoding frames:   6%|▌         | 36/588 [00:02<00:33, 16.62it/s]WanVAE encoding frames:   6%|▋         | 38/588 [00:02<00:33, 16.58it/s]WanVAE encoding frames:   7%|▋         | 40/588 [00:02<00:33, 16.57it/s]WanVAE encoding frames:   7%|▋         | 42/588 [00:02<00:33, 16.54it/s]WanVAE encoding frames:   7%|▋         | 44/588 [00:02<00:32, 16.54it/s]WanVAE encoding frames:   8%|▊         | 46/588 [00:02<00:32, 16.52it/s]WanVAE encoding frames:   8%|▊         | 48/588 [00:02<00:32, 16.56it/s]WanVAE encoding frames:   9%|▊         | 50/588 [00:02<00:32, 16.58it/s]WanVAE encoding frames:   9%|▉         | 52/588 [00:03<00:32, 16.59it/s]WanVAE encoding frames:   9%|▉         | 54/588 [00:03<00:32, 16.55it/s]WanVAE encoding frames:  10%|▉         | 56/588 [00:03<00:32, 16.53it/s]WanVAE encoding frames:  10%|▉         | 58/588 [00:03<00:32, 16.54it/s]WanVAE encoding frames:  10%|█         | 60/588 [00:03<00:32, 16.48it/s]WanVAE encoding frames:  11%|█         | 62/588 [00:03<00:31, 16.52it/s]WanVAE encoding frames:  11%|█         | 64/588 [00:03<00:31, 16.56it/s]WanVAE encoding frames:  11%|█         | 66/588 [00:03<00:31, 16.52it/s]WanVAE encoding frames:  12%|█▏        | 68/588 [00:04<00:31, 16.54it/s]WanVAE encoding frames:  12%|█▏        | 70/588 [00:04<00:31, 16.55it/s]WanVAE encoding frames:  12%|█▏        | 72/588 [00:04<00:31, 16.54it/s]WanVAE encoding frames:  13%|█▎        | 74/588 [00:04<00:31, 16.42it/s]WanVAE encoding frames:  13%|█▎        | 76/588 [00:04<00:30, 16.53it/s]WanVAE encoding frames:  13%|█▎        | 78/588 [00:04<00:30, 16.54it/s]WanVAE encoding frames:  14%|█▎        | 80/588 [00:04<00:30, 16.52it/s]WanVAE encoding frames:  14%|█▍        | 82/588 [00:04<00:30, 16.53it/s]WanVAE encoding frames:  14%|█▍        | 84/588 [00:05<00:30, 16.51it/s]WanVAE encoding frames:  15%|█▍        | 86/588 [00:05<00:30, 16.48it/s]WanVAE encoding frames:  15%|█▍        | 88/588 [00:05<00:30, 16.48it/s]WanVAE encoding frames:  15%|█▌        | 90/588 [00:05<00:30, 16.52it/s]WanVAE encoding frames:  16%|█▌        | 92/588 [00:05<00:30, 16.50it/s]WanVAE encoding frames:  16%|█▌        | 94/588 [00:05<00:29, 16.50it/s]WanVAE encoding frames:  16%|█▋        | 96/588 [00:05<00:29, 16.50it/s]WanVAE encoding frames:  17%|█▋        | 98/588 [00:05<00:29, 16.50it/s]WanVAE encoding frames:  17%|█▋        | 100/588 [00:06<00:29, 16.50it/s]WanVAE encoding frames:  17%|█▋        | 102/588 [00:06<00:29, 16.48it/s]WanVAE encoding frames:  18%|█▊        | 104/588 [00:06<00:29, 16.46it/s]WanVAE encoding frames:  18%|█▊        | 106/588 [00:06<00:29, 16.50it/s]WanVAE encoding frames:  18%|█▊        | 108/588 [00:06<00:29, 16.50it/s]WanVAE encoding frames:  19%|█▊        | 110/588 [00:06<00:28, 16.49it/s]WanVAE encoding frames:  19%|█▉        | 112/588 [00:06<00:28, 16.49it/s]WanVAE encoding frames:  19%|█▉        | 114/588 [00:06<00:28, 16.50it/s]WanVAE encoding frames:  20%|█▉        | 116/588 [00:06<00:28, 16.51it/s]WanVAE encoding frames:  20%|██        | 118/588 [00:07<00:28, 16.53it/s]WanVAE encoding frames:  20%|██        | 120/588 [00:07<00:28, 16.54it/s]WanVAE encoding frames:  21%|██        | 122/588 [00:07<00:28, 16.54it/s]WanVAE encoding frames:  21%|██        | 124/588 [00:07<00:28, 16.55it/s]WanVAE encoding frames:  21%|██▏       | 126/588 [00:07<00:27, 16.55it/s]WanVAE encoding frames:  22%|██▏       | 128/588 [00:07<00:27, 16.54it/s]WanVAE encoding frames:  22%|██▏       | 130/588 [00:07<00:27, 16.55it/s]WanVAE encoding frames:  22%|██▏       | 132/588 [00:07<00:27, 16.56it/s]WanVAE encoding frames:  23%|██▎       | 134/588 [00:08<00:27, 16.55it/s]WanVAE encoding frames:  23%|██▎       | 136/588 [00:08<00:27, 16.56it/s]WanVAE encoding frames:  23%|██▎       | 138/588 [00:08<00:27, 16.56it/s]WanVAE encoding frames:  24%|██▍       | 140/588 [00:08<00:27, 16.56it/s]WanVAE encoding frames:  24%|██▍       | 142/588 [00:08<00:26, 16.58it/s]WanVAE encoding frames:  24%|██▍       | 144/588 [00:08<00:26, 16.58it/s]WanVAE encoding frames:  25%|██▍       | 146/588 [00:08<00:26, 16.59it/s]WanVAE encoding frames:  25%|██▌       | 148/588 [00:08<00:26, 16.60it/s]WanVAE encoding frames:  26%|██▌       | 150/588 [00:09<00:26, 16.56it/s]WanVAE encoding frames:  26%|██▌       | 152/588 [00:09<00:26, 16.54it/s]WanVAE encoding frames:  26%|██▌       | 154/588 [00:09<00:26, 16.53it/s]WanVAE encoding frames:  27%|██▋       | 156/588 [00:09<00:26, 16.53it/s]WanVAE encoding frames:  27%|██▋       | 158/588 [00:09<00:25, 16.56it/s]WanVAE encoding frames:  27%|██▋       | 160/588 [00:09<00:25, 16.55it/s]WanVAE encoding frames:  28%|██▊       | 162/588 [00:09<00:25, 16.52it/s]WanVAE encoding frames:  28%|██▊       | 164/588 [00:09<00:25, 16.53it/s]WanVAE encoding frames:  28%|██▊       | 166/588 [00:10<00:25, 16.52it/s]WanVAE encoding frames:  29%|██▊       | 168/588 [00:10<00:25, 16.49it/s]WanVAE encoding frames:  29%|██▉       | 170/588 [00:10<00:25, 16.50it/s]WanVAE encoding frames:  29%|██▉       | 172/588 [00:10<00:25, 16.49it/s]WanVAE encoding frames:  30%|██▉       | 174/588 [00:10<00:25, 16.51it/s]WanVAE encoding frames:  30%|██▉       | 176/588 [00:10<00:24, 16.51it/s]WanVAE encoding frames:  30%|███       | 178/588 [00:10<00:24, 16.50it/s]WanVAE encoding frames:  31%|███       | 180/588 [00:10<00:24, 16.50it/s]WanVAE encoding frames:  31%|███       | 182/588 [00:10<00:24, 16.48it/s]WanVAE encoding frames:  31%|███▏      | 184/588 [00:11<00:24, 16.48it/s]WanVAE encoding frames:  32%|███▏      | 186/588 [00:11<00:24, 16.46it/s]WanVAE encoding frames:  32%|███▏      | 188/588 [00:11<00:24, 16.47it/s]WanVAE encoding frames:  32%|███▏      | 190/588 [00:11<00:24, 16.47it/s]WanVAE encoding frames:  33%|███▎      | 192/588 [00:11<00:24, 16.48it/s]WanVAE encoding frames:  33%|███▎      | 194/588 [00:11<00:23, 16.49it/s]WanVAE encoding frames:  33%|███▎      | 196/588 [00:11<00:23, 16.49it/s]WanVAE encoding frames:  34%|███▎      | 198/588 [00:11<00:23, 16.49it/s]WanVAE encoding frames:  34%|███▍      | 200/588 [00:12<00:23, 16.49it/s]WanVAE encoding frames:  34%|███▍      | 202/588 [00:12<00:23, 16.49it/s]WanVAE encoding frames:  35%|███▍      | 204/588 [00:12<00:23, 16.46it/s]WanVAE encoding frames:  35%|███▌      | 206/588 [00:12<00:23, 16.49it/s]WanVAE encoding frames:  35%|███▌      | 208/588 [00:12<00:23, 16.50it/s]WanVAE encoding frames:  36%|███▌      | 210/588 [00:12<00:22, 16.50it/s]WanVAE encoding frames:  36%|███▌      | 212/588 [00:12<00:22, 16.50it/s]WanVAE encoding frames:  36%|███▋      | 214/588 [00:12<00:22, 16.51it/s]WanVAE encoding frames:  37%|███▋      | 216/588 [00:13<00:22, 16.50it/s]WanVAE encoding frames:  37%|███▋      | 218/588 [00:13<00:22, 16.49it/s]WanVAE encoding frames:  37%|███▋      | 220/588 [00:13<00:22, 16.51it/s]WanVAE encoding frames:  38%|███▊      | 222/588 [00:13<00:22, 16.50it/s]WanVAE encoding frames:  38%|███▊      | 224/588 [00:13<00:22, 16.50it/s]WanVAE encoding frames:  38%|███▊      | 226/588 [00:13<00:21, 16.50it/s]WanVAE encoding frames:  39%|███▉      | 228/588 [00:13<00:21, 16.48it/s]WanVAE encoding frames:  39%|███▉      | 230/588 [00:13<00:21, 16.48it/s]WanVAE encoding frames:  39%|███▉      | 232/588 [00:14<00:21, 16.49it/s]WanVAE encoding frames:  40%|███▉      | 234/588 [00:14<00:21, 16.49it/s]WanVAE encoding frames:  40%|████      | 236/588 [00:14<00:21, 16.49it/s]WanVAE encoding frames:  40%|████      | 238/588 [00:14<00:21, 16.49it/s]WanVAE encoding frames:  41%|████      | 240/588 [00:14<00:21, 16.50it/s]WanVAE encoding frames:  41%|████      | 242/588 [00:14<00:20, 16.49it/s]WanVAE encoding frames:  41%|████▏     | 244/588 [00:14<00:20, 16.48it/s]WanVAE encoding frames:  42%|████▏     | 246/588 [00:14<00:20, 16.48it/s]WanVAE encoding frames:  42%|████▏     | 248/588 [00:14<00:20, 16.46it/s]WanVAE encoding frames:  43%|████▎     | 250/588 [00:15<00:20, 16.47it/s]WanVAE encoding frames:  43%|████▎     | 252/588 [00:15<00:20, 16.48it/s]WanVAE encoding frames:  43%|████▎     | 254/588 [00:15<00:20, 16.48it/s]WanVAE encoding frames:  44%|████▎     | 256/588 [00:15<00:20, 16.47it/s]WanVAE encoding frames:  44%|████▍     | 258/588 [00:15<00:20, 16.47it/s]WanVAE encoding frames:  44%|████▍     | 260/588 [00:15<00:19, 16.48it/s]WanVAE encoding frames:  45%|████▍     | 262/588 [00:15<00:19, 16.49it/s]WanVAE encoding frames:  45%|████▍     | 264/588 [00:15<00:19, 16.48it/s]WanVAE encoding frames:  45%|████▌     | 266/588 [00:16<00:19, 16.49it/s]WanVAE encoding frames:  46%|████▌     | 268/588 [00:16<00:19, 16.48it/s]WanVAE encoding frames:  46%|████▌     | 270/588 [00:16<00:19, 16.49it/s]WanVAE encoding frames:  46%|████▋     | 272/588 [00:16<00:19, 16.47it/s]WanVAE encoding frames:  47%|████▋     | 274/588 [00:16<00:19, 16.49it/s]WanVAE encoding frames:  47%|████▋     | 276/588 [00:16<00:18, 16.48it/s]WanVAE encoding frames:  47%|████▋     | 278/588 [00:16<00:18, 16.47it/s]WanVAE encoding frames:  48%|████▊     | 280/588 [00:16<00:18, 16.49it/s]WanVAE encoding frames:  48%|████▊     | 282/588 [00:17<00:18, 16.48it/s]WanVAE encoding frames:  48%|████▊     | 284/588 [00:17<00:18, 16.48it/s]WanVAE encoding frames:  49%|████▊     | 286/588 [00:17<00:18, 16.48it/s]WanVAE encoding frames:  49%|████▉     | 288/588 [00:17<00:18, 16.46it/s]WanVAE encoding frames:  49%|████▉     | 290/588 [00:17<00:18, 16.46it/s]WanVAE encoding frames:  50%|████▉     | 292/588 [00:17<00:17, 16.45it/s]WanVAE encoding frames:  50%|█████     | 294/588 [00:17<00:17, 16.46it/s]WanVAE encoding frames:  50%|█████     | 296/588 [00:17<00:17, 16.46it/s]WanVAE encoding frames:  51%|█████     | 298/588 [00:18<00:17, 16.47it/s]WanVAE encoding frames:  51%|█████     | 300/588 [00:18<00:17, 16.46it/s]WanVAE encoding frames:  51%|█████▏    | 302/588 [00:18<00:17, 16.46it/s]WanVAE encoding frames:  52%|█████▏    | 304/588 [00:18<00:17, 16.47it/s]WanVAE encoding frames:  52%|█████▏    | 306/588 [00:18<00:17, 16.48it/s]WanVAE encoding frames:  52%|█████▏    | 308/588 [00:18<00:17, 16.45it/s]WanVAE encoding frames:  53%|█████▎    | 310/588 [00:18<00:16, 16.47it/s]WanVAE encoding frames:  53%|█████▎    | 312/588 [00:18<00:16, 16.47it/s]WanVAE encoding frames:  53%|█████▎    | 314/588 [00:18<00:16, 16.47it/s]WanVAE encoding frames:  54%|█████▎    | 316/588 [00:19<00:16, 16.48it/s]WanVAE encoding frames:  54%|█████▍    | 318/588 [00:19<00:16, 16.48it/s]WanVAE encoding frames:  54%|█████▍    | 320/588 [00:19<00:16, 16.51it/s]WanVAE encoding frames:  55%|█████▍    | 322/588 [00:19<00:16, 16.51it/s]WanVAE encoding frames:  55%|█████▌    | 324/588 [00:19<00:16, 16.47it/s]WanVAE encoding frames:  55%|█████▌    | 326/588 [00:19<00:15, 16.45it/s]WanVAE encoding frames:  56%|█████▌    | 328/588 [00:19<00:15, 16.47it/s]WanVAE encoding frames:  56%|█████▌    | 330/588 [00:19<00:15, 16.47it/s]WanVAE encoding frames:  56%|█████▋    | 332/588 [00:20<00:15, 16.47it/s]WanVAE encoding frames:  57%|█████▋    | 334/588 [00:20<00:15, 16.46it/s]WanVAE encoding frames:  57%|█████▋    | 336/588 [00:20<00:15, 16.47it/s]WanVAE encoding frames:  57%|█████▋    | 338/588 [00:20<00:15, 16.43it/s]WanVAE encoding frames:  58%|█████▊    | 340/588 [00:20<00:15, 16.45it/s]WanVAE encoding frames:  58%|█████▊    | 342/588 [00:20<00:14, 16.46it/s]WanVAE encoding frames:  59%|█████▊    | 344/588 [00:20<00:14, 16.47it/s]WanVAE encoding frames:  59%|█████▉    | 346/588 [00:20<00:14, 16.48it/s]WanVAE encoding frames:  59%|█████▉    | 348/588 [00:21<00:14, 16.47it/s]WanVAE encoding frames:  60%|█████▉    | 350/588 [00:21<00:14, 16.48it/s]WanVAE encoding frames:  60%|█████▉    | 352/588 [00:21<00:14, 16.49it/s]WanVAE encoding frames:  60%|██████    | 354/588 [00:21<00:14, 16.49it/s]WanVAE encoding frames:  61%|██████    | 356/588 [00:21<00:14, 16.48it/s]WanVAE encoding frames:  61%|██████    | 358/588 [00:21<00:13, 16.46it/s]WanVAE encoding frames:  61%|██████    | 360/588 [00:21<00:13, 16.45it/s]WanVAE encoding frames:  62%|██████▏   | 362/588 [00:21<00:13, 16.46it/s]WanVAE encoding frames:  62%|██████▏   | 364/588 [00:22<00:13, 16.46it/s]WanVAE encoding frames:  62%|██████▏   | 366/588 [00:22<00:13, 16.46it/s]WanVAE encoding frames:  63%|██████▎   | 368/588 [00:22<00:13, 16.46it/s]WanVAE encoding frames:  63%|██████▎   | 370/588 [00:22<00:13, 16.47it/s]WanVAE encoding frames:  63%|██████▎   | 372/588 [00:22<00:13, 16.46it/s]WanVAE encoding frames:  64%|██████▎   | 374/588 [00:22<00:13, 16.44it/s]WanVAE encoding frames:  64%|██████▍   | 376/588 [00:22<00:12, 16.45it/s]WanVAE encoding frames:  64%|██████▍   | 378/588 [00:22<00:12, 16.46it/s]WanVAE encoding frames:  65%|██████▍   | 380/588 [00:22<00:12, 16.44it/s]WanVAE encoding frames:  65%|██████▍   | 382/588 [00:23<00:12, 16.46it/s]WanVAE encoding frames:  65%|██████▌   | 384/588 [00:23<00:12, 16.44it/s]WanVAE encoding frames:  66%|██████▌   | 386/588 [00:23<00:12, 16.44it/s]WanVAE encoding frames:  66%|██████▌   | 388/588 [00:23<00:12, 16.47it/s]WanVAE encoding frames:  66%|██████▋   | 390/588 [00:23<00:12, 16.45it/s]WanVAE encoding frames:  67%|██████▋   | 392/588 [00:23<00:11, 16.45it/s]WanVAE encoding frames:  67%|██████▋   | 394/588 [00:23<00:11, 16.45it/s]WanVAE encoding frames:  67%|██████▋   | 396/588 [00:23<00:11, 16.46it/s]WanVAE encoding frames:  68%|██████▊   | 398/588 [00:24<00:11, 16.47it/s]WanVAE encoding frames:  68%|██████▊   | 400/588 [00:24<00:11, 16.44it/s]WanVAE encoding frames:  68%|██████▊   | 402/588 [00:24<00:11, 16.45it/s]WanVAE encoding frames:  69%|██�2026-05-04T04:45:45.155221435Z ��███▊   | 404/588 [00:24<00:11, 16.43it/s]WanVAE encoding frames:  69%|██████▉   | 406/588 [00:24<00:11, 16.44it/s]WanVAE encoding frames:  69%|██████▉   | 408/588 [00:24<00:10, 16.44it/s]WanVAE encoding frames:  70%|██████▉   | 410/588 [00:24<00:10, 16.45it/s]WanVAE encoding frames:  70%|███████   | 412/588 [00:24<00:10, 16.46it/s]WanVAE encoding frames:  70%|███████   | 414/588 [00:25<00:10, 16.46it/s]WanVAE encoding frames:  71%|███████   | 416/588 [00:25<00:10, 16.45it/s]WanVAE encoding frames:  71%|███████   | 418/588 [00:25<00:10, 16.44it/s]WanVAE encoding frames:  71%|███████▏  | 420/588 [00:25<00:10, 16.42it/s]WanVAE encoding frames:  72%|███████▏  | 422/588 [00:25<00:10, 16.42it/s]WanVAE encoding frames:  72%|███████▏  | 424/588 [00:25<00:09, 16.41it/s]WanVAE encoding frames:  72%|███████▏  | 426/588 [00:25<00:09, 16.43it/s]WanVAE encoding frames:  73%|███████▎  | 428/588 [00:25<00:09, 16.45it/s]WanVAE encoding frames:  73%|███████▎  | 430/588 [00:26<00:09, 16.44it/s]WanVAE encoding frames:  73%|███████▎  | 432/588 [00:26<00:09, 16.48it/s]WanVAE encoding frames:  74%|███████▍  | 434/588 [00:26<00:09, 16.46it/s]WanVAE encoding frames:  74%|███████▍  | 436/588 [00:26<00:09, 16.44it/s]WanVAE encoding frames:  74%|███████▍  | 438/588 [00:26<00:09, 16.44it/s]WanVAE encoding frames:  75%|███████▍  | 440/588 [00:26<00:09, 16.44it/s]WanVAE encoding frames:  75%|███████▌  | 442/588 [00:26<00:08, 16.45it/s]WanVAE encoding frames:  76%|███████▌  | 444/588 [00:26<00:08, 16.45it/s]WanVAE encoding frames:  76%|███████▌  | 446/588 [00:27<00:08, 16.43it/s]WanVAE encoding frames:  76%|███████▌  | 448/588 [00:27<00:08, 16.45it/s]WanVAE encoding frames:  77%|███████▋  | 450/588 [00:27<00:08, 16.47it/s]WanVAE encoding frames:  77%|███████▋  | 452/588 [00:27<00:08, 16.45it/s]WanVAE encoding frames:  77%|███████▋  | 454/588 [00:27<00:08, 16.41it/s]WanVAE encoding frames:  78%|███████▊  | 456/588 [00:27<00:08, 16.40it/s]WanVAE encoding frames:  78%|███████▊  | 458/588 [00:27<00:07, 16.39it/s]WanVAE encoding frames:  78%|███████▊  | 460/588 [00:27<00:07, 16.39it/s]WanVAE encoding frames:  79%|███████▊  | 462/588 [00:27<00:07, 16.41it/s]WanVAE encoding frames:  79%|███████▉  | 464/588 [00:28<00:07, 16.43it/s]WanVAE encoding frames:  79%|███████▉  | 466/588 [00:28<00:07, 16.45it/s]WanVAE encoding frames:  80%|███████▉  | 468/588 [00:28<00:07, 16.45it/s]WanVAE encoding frames:  80%|███████▉  | 470/588 [00:28<00:07, 16.45it/s]WanVAE encoding frames:  80%|████████  | 472/588 [00:28<00:07, 16.45it/s]WanVAE encoding frames:  81%|████████  | 474/588 [00:28<00:06, 16.42it/s]WanVAE encoding frames:  81%|████████  | 476/588 [00:28<00:06, 16.40it/s]WanVAE encoding frames:  81%|████████▏ | 478/588 [00:28<00:06, 16.43it/s]WanVAE encoding frames:  82%|████████▏ | 480/588 [00:29<00:06, 16.44it/s]WanVAE encoding frames:  82%|████████▏ | 482/588 [00:29<00:06, 16.41it/s]WanVAE encoding frames:  82%|████████▏ | 484/588 [00:29<00:06, 16.42it/s]WanVAE encoding frames:  83%|████████▎ | 486/588 [00:29<00:06, 16.43it/s]WanVAE encoding frames:  83%|████████▎ | 488/588 [00:29<00:06, 16.44it/s]WanVAE encoding frames:  83%|████████▎ | 490/588 [00:29<00:05, 16.44it/s]WanVAE encoding frames:  84%|████████▎ | 492/588 [00:29<00:05, 16.42it/s]WanVAE encoding frames:  84%|████████▍ | 494/588 [00:29<00:05, 16.42it/s]WanVAE encoding frames:  84%|████████▍ | 496/588 [00:30<00:05, 16.43it/s]WanVAE encoding frames:  85%|████████▍ | 498/588 [00:30<00:05, 16.43it/s]WanVAE encoding frames:  85%|████████▌ | 500/588 [00:30<00:05, 16.38it/s]WanVAE encoding frames:  85%|████████▌ | 502/588 [00:30<00:05, 16.37it/s]WanVAE encoding frames:  86%|████████▌ | 504/588 [00:30<00:05, 16.39it/s]WanVAE encoding frames:  86%|████████▌ | 506/588 [00:30<00:05, 16.39it/s]WanVAE encoding frames:  86%|████████▋ | 508/588 [00:30<00:04, 16.41it/s]WanVAE encoding frames:  87%|████████▋ | 510/588 [00:30<00:04, 16.43it/s]WanVAE encoding frames:  87%|████████▋ | 512/588 [00:31<00:04, 16.41it/s]WanVAE encoding frames:  87%|████████▋ | 514/588 [00:31<00:04, 16.43it/s]WanVAE encoding frames:  88%|████████▊ | 516/588 [00:31<00:04, 16.43it/s]WanVAE encoding frames:  88%|████████▊ | 518/588 [00:31<00:04, 16.44it/s]WanVAE encoding frames:  88%|████████▊ | 520/588 [00:31<00:04, 16.44it/s]WanVAE encoding frames:  89%|████████▉ | 522/588 [00:31<00:04, 16.47it/s]WanVAE encoding frames:  89%|████████▉ | 524/588 [00:31<00:03, 16.46it/s]WanVAE encoding frames:  89%|████████▉ | 526/588 [00:31<00:03, 16.46it/s]WanVAE encoding frames:  90%|████████▉ | 528/588 [00:31<00:03, 16.47it/s]WanVAE encoding frames:  90%|█████████ | 530/588 [00:32<00:03, 16.45it/s]WanVAE encoding frames:  90%|█████████ | 532/588 [00:32<00:03, 16.49it/s]WanVAE encoding frames:  91%|█████████ | 534/588 [00:32<00:03, 16.48it/s]WanVAE encoding frames:  91%|█████████ | 536/588 [00:32<00:03, 16.47it/s]WanVAE encoding frames:  91%|█████████▏| 538/588 [00:32<00:03, 16.48it/s]WanVAE encoding frames:  92%|█████████▏| 540/588 [00:32<00:02, 16.48it/s]WanVAE encoding frames:  92%|█████████▏| 542/588 [00:32<00:02, 16.49it/s]WanVAE encoding frames:  93%|█████████▎| 544/588 [00:32<00:02, 16.52it/s]WanVAE encoding frames:  93%|█████████▎| 546/588 [00:33<00:02, 16.50it/s]WanVAE encoding frames:  93%|█████████▎| 548/588 [00:33<00:02, 16.49it/s]WanVAE encoding frames:  94%|█████████▎| 550/588 [00:33<00:02, 16.48it/s]WanVAE encoding frames:  94%|█████████▍| 552/588 [00:33<00:02, 16.49it/s]WanVAE encoding frames:  94%|█████████▍| 554/588 [00:33<00:02, 16.51it/s]WanVAE encoding frames:  95%|█████████▍| 556/588 [00:33<00:01, 16.50it/s]WanVAE encoding frames:  95%|█████████▍| 558/588 [00:33<00:01, 16.47it/s]WanVAE encoding frames:  95%|█████████▌| 560/588 [00:33<00:01, 16.49it/s]WanVAE encoding frames:  96%|█████████▌| 562/588 [00:34<00:01, 16.50it/s]WanVAE encoding frames:  96%|█████████▌| 564/588 [00:34<00:01, 16.49it/s]WanVAE encoding frames:  96%|█████████▋| 566/588 [00:34<00:01, 16.47it/s]WanVAE encoding frames:  97%|█████████▋| 568/588 [00:34<00:01, 16.49it/s]WanVAE encoding frames:  97%|█████████▋| 570/588 [00:34<00:01, 16.48it/s]WanVAE encoding frames:  97%|█████████▋| 572/588 [00:34<00:00, 16.47it/s]WanVAE encoding frames:  98%|█████████▊| 574/588 [00:34<00:00, 16.46it/s]WanVAE encoding frames:  98%|█████████▊| 576/588 [00:34<00:00, 16.46it/s]WanVAE encoding frames:  98%|█████████▊| 578/588 [00:35<00:00, 16.46it/s]WanVAE encoding frames:  99%|█████████▊| 580/588 [00:35<00:00, 16.46it/s]WanVAE encoding frames:  99%|█████████▉| 582/588 [00:35<00:00, 16.46it/s]WanVAE encoding frames:  99%|█████████▉| 584/588 [00:35<00:00, 16.44it/s]WanVAE encoding frames: 100%|█████████▉| 586/588 [00:35<00:00, 16.45it/s]WanVAE encoding frames: 100%|██████████| 588/588 [00:35<00:00, 16.44it/s]WanVAE encoding frames: 100%|██████████| 588/588 [00:35<00:00, 16.50it/s]
+2026-05-04T04:45:56.880979073Z WanVideoEncode: Encoded latents shape torch.Size([1, 16, 588, 44, 80])
+2026-05-04T04:45:56.934729720Z handler.py          :179  2026-05-04 04:45:56,934 노드 실행 중: 241
+2026-05-04T04:46:01.016548359Z Loading T5 parameters:   0%|          | 0/242 [00:00<?, ?it/s]Loading T5 parameters:   0%|          | 1/242 [00:00<01:47,  2.25it/s]Loading T5 parameters:  14%|█▎        | 33/242 [00:00<00:02, 79.14it/s]Loading T5 parameters:  25%|██▍       | 60/242 [00:00<00:01, 125.54it/s]Loading T5 parameters:  38%|███▊      | 93/242 [00:00<00:00, 179.08it/s]Loading T5 parameters:  49%|████▉     | 119/242 [00:00<00:00, 199.24it/s]Loading T5 parameters:  60%|█████▉    | 145/242 [00:00<00:00, 211.25it/s]Loading T5 parameters:  71%|███████   | 171/242 [00:01<00:00, 221.05it/s]Loading T5 parameters:  84%|████████▍ | 203/242 [00:01<00:00, 248.39it/s]Loading T5 parameters:  95%|█████████▌| 231/242 [00:01<00:00, 254.40it/s]Loading T5 parameters: 100%|██████████| 242/242 [00:01<00:00, 184.93it/s]
+2026-05-04T04:46:01.625438958Z T5Encoder:   0%|          | 0/24 [00:00<?, ?it/s]T5Encoder:   4%|▍         | 1/24 [00:00<00:02,  7.98it/s]T5Encoder: 100%|██████████| 24/24 [00:00<00:00, 140.51it/s]
+2026-05-04T04:46:01.666713548Z prompt token count: tensor([11], device='cuda:0')
+2026-05-04T04:46:01.710725263Z T5Encoder:   0%|          | 0/24 [00:00<?, ?it/s]T5Encoder: 100%|██████████| 24/24 [00:00<00:00, 574.84it/s]
+2026-05-04T04:46:01.758182157Z prompt token count: tensor([98], device='cuda:0')
+2026-05-04T04:46:02.720153679Z handler.py          :179  2026-05-04 04:46:02,719 노드 실행 중: 231
+2026-05-04T04:46:02.724172463Z handler.py          :179  2026-05-04 04:46:02,724 노드 실행 중: 291
+2026-05-04T04:46:02.728682603Z handler.py          :179  2026-05-04 04:46:02,728 노드 실행 중: 238
+2026-05-04T04:46:02.759838223Z handler.py          :179  2026-05-04 04:46:02,759 노드 실행 중: 237
+2026-05-04T04:46:03.097144858Z Requested to load CLIPVisionModelProjection
+2026-05-04T04:46:03.146120039Z Model CLIPVisionModelProjection prepared for dynamic VRAM loading. 1205MB Staged. 0 patches attached.
+2026-05-04T04:46:03.283789084Z Clip embeds shape: torch.Size([1, 257, 1280]), dtype: torch.float32
+2026-05-04T04:46:03.283940372Z Combined clip embeds shape: torch.Size([1, 257, 1280])
+2026-05-04T04:46:04.074858218Z handler.py          :179  2026-05-04 04:46:04,074 노드 실행 중: 192
+2026-05-04T04:46:04.113183745Z handler.py          :179  2026-05-04 04:46:04,113 노드 실행 중: 120
+2026-05-04T04:46:04.115787131Z handler.py          :179  2026-05-04 04:46:04,115 노드 실행 중: 138
+2026-05-04T04:46:04.118424857Z handler.py          :179  2026-05-04 04:46:04,118 노드 실행 중: 134
+2026-05-04T04:46:04.121173862Z handler.py          :179  2026-05-04 04:46:04,121 노드 실행 중: 122
+2026-05-04T04:46:04.148548117Z CUDA Compute Capability: 8.0
+2026-05-04T04:46:04.148647136Z Detected model in_channels: 36
+2026-05-04T04:46:04.148674656Z Model cross attention type: i2v, num_heads: 40, num_layers: 40
+2026-05-04T04:46:04.148779635Z Model variant detected: i2v_480
+2026-05-04T04:46:04.288341893Z InfiniteTalk detected, patching model...
+2026-05-04T04:46:04.332219399Z Loading LoRA: lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16 with strength: 1.0
+2026-05-04T04:46:04.609409984Z Loading and assigning model weights to device...
+2026-05-04T04:46:04.613987612Z Loading transformer parameters to cuda:0:   0%|          | 0/1633 [00:00<?, ?it/s]handler.py          :179  2026-05-04 04:46:04,613 노드 실행 중: 128
+2026-05-04T04:46:06.900923190Z Loading transformer parameters to cuda:0:   1%|          | 11/1633 [00:00<00:22, 73.64it/s]Loading transformer parameters to cuda:0:   4%|▎         | 58/1633 [00:00<00:05, 264.79it/s]Loading transformer parameters to cuda:0:   6%|▌         | 98/1633 [00:00<00:04, 314.40it/s]Loading transformer parameters to cuda:0:   9%|▊         | 140/1633 [00:00<00:04, 345.49it/s]Loading transformer parameters to cuda:0:  11%|█         | 180/1633 [00:00<00:04, 360.86it/s]Loading transformer parameters to cuda:0:  13%|█▎        | 220/1633 [00:00<00:03, 370.90it/s]Loading transformer parameters to cuda:0:  16%|█▌        | 258/1633 [00:00<00:03, 372.25it/s]Loading transformer parameters to cuda:0:  19%|█▊        | 306/1633 [00:00<00:03, 400.83it/s]Loading transformer parameters to cuda:0:  22%|██▏       | 356/1633 [00:00<00:02, 426.17it/s]Loading transformer parameters to cuda:0:  24%|██▍       | 399/1633 [00:01<00:02, 423.44it/s]Loading transformer parameters to cuda:0:  27%|██▋       | 442/1633 [00:01<00:02, 399.80it/s]Loading transformer parameters to cuda:0:  30%|██▉       | 483/1633 [00:01<00:02, 389.63it/s]Loading transformer parameters to cuda:0:  33%|███▎      | 534/1633 [00:01<00:02, 423.11it/s]Loading transformer parameters to cuda:0:  35%|███▌      | 577/1633 [00:01<00:02, 410.01it/s]Loading transformer parameters to cuda:0:  38%|███▊      | 619/1633 [00:01<00:02, 405.17it/s]Loading transformer parameters to cuda:0:  40%|████      | 660/1633 [00:01<00:02, 389.15it/s]Loading transformer parameters to cuda:0:  43%|████▎     | 700/1633 [00:01<00:02, 389.42it/s]Loading transformer parameters to cuda:0:  45%|████▌     | 740/1633 [00:01<00:02, 372.79it/s]Loading transformer parameters to cuda:0:  48%|████▊     | 786/1633 [00:02<00:02, 396.84it/s]Loading transformer parameters to cuda:0:  82%|████████▏ | 1344/1633 [00:02<00:00, 1871.41it/s]Loading transformer parameters to cuda:0: 100%|█████████▉| 1630/1633 [00:02<00:00, 2039.92it/s]Loading transformer parameters to cuda:0: 100%|██████████| 1633/1633 [00:02<00:00, 712.83it/s]
+2026-05-04T04:46:06.907661330Z -------------------------
+2026-05-04T04:46:06.907749739Z Transformer weights loaded:
+2026-05-04T04:46:06.907794378Z Device: cuda:0   | Memory: 4,240,654.69 MB
+2026-05-04T04:46:06.907859488Z Device: cpu      | Memory: 10,945,563.03 MB
+2026-05-04T04:46:06.908296634Z Using 1261 LoRA weight patches for WanVideo model
+2026-05-04T04:46:20.319408285Z ------- Scheduler info -------
+2026-05-04T04:46:20.323265370Z Total timesteps: tensor([999, 970, 916, 785], device='cuda:0')
+2026-05-04T04:46:20.323294819Z Using timesteps: tensor([916, 785], device='cuda:0')
+2026-05-04T04:46:20.323298239Z Using sigmas: tensor([0.9167, 0.7857, 0.0000])
+2026-05-04T04:46:20.323312499Z ------------------------------
+2026-05-04T04:46:20.332023201Z Multitalk audio features shapes (per speaker): [(801, 12, 768)]
+2026-05-04T04:46:20.802145895Z Rope function: comfy
+2026-05-04T04:46:21.223469706Z Multitalk mode: infinitetalk
+2026-05-04T04:46:21.254343519Z Sampling 801 frames in 12 windows, at 640x352 with 2 steps
+2026-05-04T04:46:23.414882630Z Generated new RoPE frequencies
+2026-05-04T04:46:24.578239786Z Sampling audio indices 0-81:   0%|          | 0/2 [00:00<?, ?it/s]                                                                  Sampling audio indices 0-81:   0%|          | 0/2 [00:00<?, ?it/s]terminate called after throwing an instance of 'c10::AcceleratorError'
+2026-05-04T04:46:24.580333137Z   what():  CUDA error: no kernel image is available for execution on the device
+2026-05-04T04:46:24.580344427Z Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+2026-05-04T04:46:24.580348567Z CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+2026-05-04T04:46:24.580352667Z For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+2026-05-04T04:46:24.580356267Z Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+2026-05-04T04:46:24.580366787Z Exception raised from c10_cuda_check_implementation at /pytorch/c10/cuda/CUDAException.cpp:44 (most recent call first):
+2026-05-04T04:46:24.580401786Z frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7857ce76bb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+2026-05-04T04:46:24.580406086Z frame #1: <unknown function> + 0x11fb7 (0x78582d721fb7 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10_cuda.so)
+2026-05-04T04:46:24.580436366Z frame #2: <unknown function> + 0x5c051 (0x78582d76c051 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10_cuda.so)
+2026-05-04T04:46:24.580644814Z frame #3: <unknown function> + 0x48c1cf (0x78581f8ae1cf in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580656214Z frame #4: c10::TensorImpl::~TensorImpl() + 0x9 (0x7857ce748d69 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+2026-05-04T04:46:24.580661934Z frame #5: <unknown function> + 0x7d4788 (0x78581fbf6788 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580672514Z frame #6: <unknown function> + 0x7d4b0c (0x78581fbf6b0c in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580678684Z <omitting python frames>
+2026-05-04T04:46:24.580688864Z frame #21: <unknown function> + 0x9808da (0x78581fda28da in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580694594Z frame #22: <unknown function> + 0xcb3ccb (0x7858200d5ccb in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580712433Z frame #23: <unknown function> + 0x5ce9574 (0x7858107b5574 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+2026-05-04T04:46:24.580716813Z frame #24: <unknown function> + 0xa367e5 (0x78581fe587e5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580722803Z frame #25: <unknown function> + 0xa36b30 (0x78581fe58b30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580735473Z frame #26: torch::jit::_get_operation_for_overload_or_packet(std::vector<std::shared_ptr<torch::jit::Operator>, std::allocator<std::shared_ptr<torch::jit::Operator> > > const&, c10::Symbol, pybind11::args const&, pybind11::kwargs const&, bool, std::optional<c10::DispatchKey>) + 0x38 (0x78581fe58b98 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580745603Z frame #27: <unknown function> + 0x92c36c (0x78581fd4e36c in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580752383Z frame #28: <unknown function> + 0x3cc213 (0x78581f7ee213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+2026-05-04T04:46:24.580787353Z Fatal Python error: Aborted
+2026-05-04T04:46:24.580794443Z Stack (most recent call first):
+2026-05-04T04:46:24.580797253Z   File "/usr/local/lib/python3.10/dist-packages/sageattention/core.py", line 145 in sageattn
+2026-05-04T04:46:24.580803733Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/wanvideo/modules/attention.py", line 24 in sageattn_func
+2026-05-04T04:46:24.580813373Z   File "/usr/local/lib/python3.10/dist-packages/torch/_library/custom_ops.py", line 376 in wrapped_fn
+2026-05-04T04:46:24.580816182Z   File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/eval_frame.py", line 1044 in _fn
+2026-05-04T04:46:24.580821882Z   File "/usr/local/lib/python3.10/dist-packages/torch/_compile.py", line 53 in inner
+2026-05-04T04:46:24.580831072Z   File "/usr/local/lib/python3.10/dist-packages/torch/_library/custom_ops.py", line 343 in backend_impl
+2026-05-04T04:46:24.580836202Z   File "/usr/local/lib/python3.10/dist-packages/torch/_ops.py", line 1255 in __call__
+2026-05-04T04:46:24.580846602Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/wanvideo/modules/attention.py", line 109 in attention
+2026-05-04T04:46:24.580850392Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/wanvideo/modules/model.py", line 485 in forward
+2026-05-04T04:46:24.580855872Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/wanvideo/modules/model.py", line 1264 in forward
+2026-05-04T04:46:24.580865552Z   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1786 in _call_impl
+2026-05-04T04:46:24.580870882Z   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1775 in _wrapped_call_impl
+2026-05-04T04:46:24.580874172Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/wanvideo/modules/model.py", line 3274 in forward
+2026-05-04T04:46:24.580879022Z   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1786 in _call_impl
+2026-05-04T04:46:24.580889652Z   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1775 in _wrapped_call_impl
+2026-05-04T04:46:24.580892742Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/nodes_sampler.py", line 1512 in predict_with_cfg
+2026-05-04T04:46:24.580896192Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/multitalk/multitalk_loop.py", line 417 in multitalk_loop
+2026-05-04T04:46:24.580901922Z   File "/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/nodes_sampler.py", line 2045 in process
+2026-05-04T04:46:24.580911692Z   File "/ComfyUI/execution.py", line 297 in process_inputs
+2026-05-04T04:46:24.580918022Z   File "/ComfyUI/execution.py", line 309 in _async_map_node_over_list
+2026-05-04T04:46:24.580929271Z   File "/ComfyUI/execution.py", line 335 in get_output_data
+2026-05-04T04:46:24.580933951Z   File "/ComfyUI/execution.py", line 535 in execute
+2026-05-04T04:46:24.580944141Z   File "/ComfyUI/execution.py", line 772 in execute_async
+2026-05-04T04:46:24.580947371Z   File "/usr/lib/python3.10/asyncio/events.py", line 80 in _run
+2026-05-04T04:46:24.580952671Z   File "/usr/lib/python3.10/asyncio/base_events.py", line 1909 in _run_once
+2026-05-04T04:46:24.580962421Z   File "/usr/lib/python3.10/asyncio/base_events.py", line 603 in run_forever
+2026-05-04T04:46:24.580965221Z   File "/usr/lib/python3.10/asyncio/base_events.py", line 636 in run_until_complete
+2026-05-04T04:46:24.580970141Z   File "/usr/lib/python3.10/asyncio/runners.py", line 44 in run
+2026-05-04T04:46:24.580981281Z   File "/ComfyUI/execution.py", line 713 in execute
+2026-05-04T04:46:24.580990181Z   File "/ComfyUI/main.py", line 313 in prompt_worker
+2026-05-04T04:46:24.580997601Z   File "/usr/lib/python3.10/threading.py", line 953 in run
+2026-05-04T04:46:24.581003801Z   File "/usr/lib/python3.10/threading.py", line 1016 in _bootstrap_inner
+2026-05-04T04:46:24.581013101Z   File "/usr/lib/python3.10/threading.py", line 973 in _bootstrap
+2026-05-04T04:46:24.584964785Z Extension modules: sqlalchemy.cyextension.collections, sqlalchemy.cyextension.immutabledict, sqlalchemy.cyextension.processors, sqlalchemy.cyextension.resultproxy, sqlalchemy.cyextension.util, greenlet._greenlet, markupsafe._speedups, yaml._yaml, PIL._imaging, multidict._multidict, yarl._quoting_c, propcache._helpers_c, _brotli, backports.zstd._zstd, aiohttp._http_writer, aiohttp._http_parser, aiohttp._websocket.mask, aiohttp._websocket.reader_c, _cffi_backend, frozenlist._frozenlist, chardet.models, chardet.pipeline.ascii, chardet.pipeline.confusion, chardet.pipeline.escape, chardet.pipeline.magic, chardet.pipeline.statistical, chardet.pipeline.structural, chardet.pipeline.utf8, chardet.pipeline.utf1632, chardet.pipeline.validity, chardet.pipeline.orchestrator, charset_normalizer.md, requests.packages.chardet.models, requests.packages.chardet.pipeline.ascii, requests.packages.chardet.pipeline.confusion, requests.packages.chardet.pipeline.escape, requests.packages.chardet.pipeline.magic, requests.packages.chardet.pipeline.statistical, requests.packages.chardet.pipeline.structural, requests.packages.chardet.pipeline.utf8, requests.packages.chardet.pipeline.utf1632, requests.packages.chardet.pipeline.validity, requests.packages.chardet.pipeline.orchestrator, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, torch._C, torch._C._dynamo.autograd_compiler, torch._C._dynamo.eval_frame, torch._C._dynamo.guards, torch._C._dynamo.utils, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, psutil._psutil_linux, scipy._lib._ccallback_c, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.optimize._group_columns, scipy._lib.messagestream, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.spatial._ckdtree, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._direct, PIL._imagingft, av._core, av.logging, av.buffer, av.audio.format, av.error, av.dictionary, av.container.pyio, av.option, av.descriptor, av.format, av.index, av.utils, av.stream, av.container.streams, av.sidedata.encparams, av.sidedata.motionvectors, av.sidedata.sidedata, av.opaque, av.packet, av.container.input, av.container.output, av.container.core, av.codec.context, av.video.format, av.video.reformatter, av.plane, av.video.plane, av.video.frame, av.video.stream, av.codec.hwaccel, av.codec.codec, av.frame, av.audio.layout, av.audio.plane, av.audio.frame, av.audio.stream, av.filter.link, av.filter.context, av.filter.graph, av.filter.filter, av.filter.loudnorm, av.audio.resampler, av.audio.codeccontext, av.audio.fifo, av.bitstream, av.device, av.video.codeccontext, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, regex._regex, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, av.subtitles.stream, sentencepiece._sentencepiece, sklearn.__check_build._check_build, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, scipy.signal._sigtools, scipy.signal._max_len_seq_inner, scipy.signal._upfirdn_apply, scipy.signal._spline, scipy.signal._sosfilt, scipy.signal._peak_finding_utils, cuda_utils, __triton_launcher (total: 231)
+2026-05-04T04:46:27.464057932Z {"requestId": "dd5940d5-c10f-4513-b3d7-efc705ac9579-u1", "message": "Captured Handler Exception", "level": "ERROR"}
+2026-05-04T04:46:27.464141891Z {"requestId": null, "message": "{\n    \"error_type\": \"<class 'websocket._exceptions.WebSocketConnectionClosedException'>\",\n    \"error_message\": \"Connection to remote host was lost.\",\n    \"error_traceback\": \"Traceback (most recent call last):\\n  File \\\"/usr/local/lib/python3.10/dist-packages/runpod/serverless/modules/rp_job.py\\\", line 182, in run_job\\n    handler_return = handler(job)\\n  File \\\"//handler.py\\\", line 580, in handler\\n    videos = get_videos(ws, prompt, input_type, person_count)\\n  File \\\"//handler.py\\\", line 173, in get_videos\\n    out = ws.recv()\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_core.py\\\", line 395, in recv\\n    opcode, data = self.recv_data()\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_core.py\\\", line 423, in recv_data\\n    opcode, frame = self.recv_data_frame(control_frame)\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_core.py\\\", line 444, in recv_data_frame\\n    frame = self.recv_frame()\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_core.py\\\", line 485, in recv_frame\\n    return self.frame_buffer.recv_frame()\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_abnf.py\\\", line 375, in recv_frame\\n    self.recv_header()\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_abnf.py\\\", line 329, in recv_header\\n    header = self.recv_strict(2)\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_abnf.py\\\", line 418, in recv_strict\\n    bytes_ = self.recv(min(16384, shortage))\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_core.py\\\", line 581, in _recv\\n    return recv(self.sock, bufsize)\\n  File \\\"/usr/local/lib/python3.10/dist-packages/websocket/_socket.py\\\", line 143, in recv\\n    raise WebSocketConnectionClosedException(\\\"Connection to remote host was lost.\\\")\\nwebsocket._exceptions.WebSocketConnectionClosedException: Connection to remote host was lost.\\n\",\n    \"hostname\": \"r4kxby8lcwhqs1-64410abc\",\n    \"worker_id\": \"r4kxby8lcwhqs1\",\n    \"runpod_version\": \"1.8.1\"\n}", "level": "ERROR"}
+2026-05-04T04:46:27.891215700Z {"requestId": "dd5940d5-c10f-4513-b3d7-efc705ac9579-u1", "message": "Finished.", "level": "INFO"}

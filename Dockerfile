@@ -2,7 +2,7 @@
 # build (download_models.py) so we stay under RunPod's 30-min build cap.
 # Set VARIANT=single (default) or multi to choose the InfiniteTalk weight.
 
-FROM wlsdml1114/engui_genai-base_blackwell:1.1 AS runtime
+FROM wlsdml1114/engui_genai-base:1.9 AS runtime
 
 ARG VARIANT=single
 ENV VARIANT=${VARIANT}
