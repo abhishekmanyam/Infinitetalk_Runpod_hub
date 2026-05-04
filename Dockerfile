@@ -11,7 +11,7 @@ ENV HF_HUB_ENABLE_HF_TRANSFER=1
 RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 
 RUN pip install -U "huggingface_hub[hf_transfer]" && \
-    pip install runpod websocket-client librosa
+    pip install runpod websocket-client librosa sageattention
 
 WORKDIR /
 
