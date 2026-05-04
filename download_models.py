@@ -6,6 +6,7 @@ one is used at runtime.
 """
 
 import os
+import shutil
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -60,8 +61,11 @@ def fetch(repo_id: str, src: str, subdir: str, dst_name: str) -> str:
     if target.exists():
         return f"skip {target}"
     cached = hf_hub_download(repo_id=repo_id, filename=src)
-    os.replace(cached, target)
-    return f"ok   {target}"
+    # `cached` is a symlink into the HF cache. Resolve and copy the real blob
+    # so the model survives after the cache layer is discarded.
+    real = os.path.realpath(cached)
+    shutil.copyfile(real, target)
+    return f"ok   {target} ({os.path.getsize(target)} bytes)"
 
 
 def main() -> None:

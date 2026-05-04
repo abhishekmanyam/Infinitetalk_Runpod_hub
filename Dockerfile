@@ -36,7 +36,7 @@ RUN cd /ComfyUI/custom_nodes && \
 # Parallel model download in a single layer.
 COPY download_models.py /tmp/download_models.py
 RUN MODELS_DIR=/ComfyUI/models python /tmp/download_models.py && \
-    rm /tmp/download_models.py
+    rm -rf /tmp/download_models.py /root/.cache/huggingface
 
 COPY . .
 RUN chmod +x /entrypoint.sh

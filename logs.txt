@@ -1,0 +1,208 @@
+2026-05-04T03:57:57.611833957Z ==========
+2026-05-04T03:57:57.611836392Z == CUDA ==
+2026-05-04T03:57:57.611838225Z ==========
+2026-05-04T03:57:57.614660429Z CUDA Version 12.8.1
+2026-05-04T03:57:57.617317921Z Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+2026-05-04T03:57:57.618763413Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+2026-05-04T03:57:57.618766178Z By pulling and using the container, you accept the terms and conditions of this license:
+2026-05-04T03:57:57.618768152Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+2026-05-04T03:57:57.618771728Z A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+2026-05-04T03:57:57.634372662Z Starting ComfyUI in the background...
+2026-05-04T03:57:57.634700461Z Waiting for ComfyUI to be ready...
+2026-05-04T03:57:57.645048788Z Waiting for ComfyUI... (0/120)
+2026-05-04T03:57:57.985463565Z setup plugin alembic.autogenerate.schemas
+2026-05-04T03:57:57.985538055Z setup plugin alembic.autogenerate.tables
+2026-05-04T03:57:57.985542564Z setup plugin alembic.autogenerate.types
+2026-05-04T03:57:57.985551892Z setup plugin alembic.autogenerate.constraints
+2026-05-04T03:57:57.985555629Z setup plugin alembic.autogenerate.defaults
+2026-05-04T03:57:57.985561270Z setup plugin alembic.autogenerate.comments
+2026-05-04T03:57:59.170875425Z [START] Security scan
+2026-05-04T03:57:59.170895754Z [DONE] Security scan
+2026-05-04T03:57:59.170919398Z ## ComfyUI-Manager: installing dependencies done.
+2026-05-04T03:57:59.171022193Z ** ComfyUI startup time: 2026-05-04 03:57:59.170
+2026-05-04T03:57:59.171120969Z ** Platform: Linux
+2026-05-04T03:57:59.171243380Z ** Python version: 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]
+2026-05-04T03:57:59.171341596Z ** Python executable: /usr/bin/python
+2026-05-04T03:57:59.171451965Z ** ComfyUI Path: /ComfyUI
+2026-05-04T03:57:59.171557264Z ** ComfyUI Base Folder Path: /ComfyUI
+2026-05-04T03:57:59.171668283Z ** User directory: /ComfyUI/user
+2026-05-04T03:57:59.171805803Z ** ComfyUI-Manager config path: /ComfyUI/user/__manager/config.ini
+2026-05-04T03:57:59.171928225Z ** Log path: /ComfyUI/user/comfyui.log
+2026-05-04T03:57:59.657685735Z Waiting for ComfyUI... (2/120)
+2026-05-04T03:57:59.879671671Z /usr/local/lib/python3.10/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+2026-05-04T03:57:59.879694735Z   warnings.warn(
+2026-05-04T03:57:59.879702269Z Prestartup times for custom nodes:
+2026-05-04T03:57:59.879871369Z    1.8 seconds: /ComfyUI/custom_nodes/ComfyUI-Manager
+2026-05-04T03:58:01.671081957Z Waiting for ComfyUI... (4/120)
+2026-05-04T03:58:02.427705409Z WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
+2026-05-04T03:58:02.427843320Z Found comfy_kitchen backend cuda: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_nvfp4']}
+2026-05-04T03:58:02.427879849Z Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8']}
+2026-05-04T03:58:02.427922309Z Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['apply_rope', 'apply_rope1', 'dequantize_mxfp8', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'scaled_mm_mxfp8', 'scaled_mm_nvfp4']}
+2026-05-04T03:58:02.433565965Z Checkpoint files will always be loaded safely.
+2026-05-04T03:58:02.660758531Z Total VRAM 81156 MB, total RAM 2064036 MB
+2026-05-04T03:58:02.660841698Z pytorch version: 2.9.1+cu128
+2026-05-04T03:58:03.099537339Z xformers version: 0.0.33.post2
+2026-05-04T03:58:03.099753187Z Set vram state to: NORMAL_VRAM
+2026-05-04T03:58:03.099833058Z Device: cuda:0 NVIDIA A100-SXM4-80GB : cudaMallocAsync
+2026-05-04T03:58:03.099945611Z Using async weight offloading with 2 streams
+2026-05-04T03:58:03.100164775Z Enabled pinned memory 1857632.0
+2026-05-04T03:58:03.112411900Z working around nvidia conv3d memory bug.
+2026-05-04T03:58:03.332575813Z Using sage attention
+2026-05-04T03:58:03.685438575Z Waiting for ComfyUI... (6/120)
+2026-05-04T03:58:05.035978900Z aimdo: /project/src-posix/cuda-funchooks.c:52:DEBUG:aimdo_setup_hooks: hooks successfully installed
+2026-05-04T03:58:05.036109307Z aimdo: /project/src/control.c:151:INFO:comfy-aimdo inited for GPU: NVIDIA A100-SXM4-80GB (VRAM: 81155 MB)
+2026-05-04T03:58:05.036470459Z DynamicVRAM support detected and enabled
+2026-05-04T03:58:05.036671469Z Python version: 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]
+2026-05-04T03:58:05.036747913Z ComfyUI version: 0.20.1
+2026-05-04T03:58:05.037585015Z comfy-aimdo version: 0.3.0
+2026-05-04T03:58:05.038023284Z comfy-kitchen version: 0.2.8
+2026-05-04T03:58:05.039407019Z ComfyUI frontend version: 1.42.15
+2026-05-04T03:58:05.040124044Z [Prompt Server] web root: /usr/local/lib/python3.10/dist-packages/comfyui_frontend_package/static
+2026-05-04T03:58:05.041429100Z Asset seeder disabled
+2026-05-04T03:58:05.698824788Z Waiting for ComfyUI... (8/120)
+2026-05-04T03:58:06.643774314Z ### Loading: ComfyUI-Manager (V3.40)
+2026-05-04T03:58:06.644127713Z [ComfyUI-Manager] network_mode: public
+2026-05-04T03:58:06.644261495Z [ComfyUI-Manager] ComfyUI per-queue preview override detected (PR #11261). Manager's preview method feature is disabled. Use ComfyUI's --preview-method CLI option or 'Settings > Execution > Live preview method'.
+2026-05-04T03:58:06.725149210Z ### ComfyUI Version: v0.20.1-43-gcea8d092 | Released on '2026-05-03'
+2026-05-04T03:58:06.803492014Z ComfyUI-GGUF: Allowing full torch compile
+2026-05-04T03:58:07.012268938Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+2026-05-04T03:58:07.025076823Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+2026-05-04T03:58:07.213884317Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+2026-05-04T03:58:07.274935053Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+2026-05-04T03:58:07.545363778Z [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+2026-05-04T03:58:07.710760600Z Waiting for ComfyUI... (10/120)
+2026-05-04T03:58:08.205286131Z WanVideoWrapper WARNING: FantasyPortrait nodes not available: No module named 'onnx'
+2026-05-04T03:58:08.249269683Z Import times for custom nodes:
+2026-05-04T03:58:08.249340646Z    0.0 seconds: /ComfyUI/custom_nodes/websocket_image_save.py
+2026-05-04T03:58:08.249402463Z    0.0 seconds: /ComfyUI/custom_nodes/ComfyUI-wanBlockswap
+2026-05-04T03:58:08.249423633Z    0.0 seconds: /ComfyUI/custom_nodes/ComfyUI-MelBandRoFormer
+2026-05-04T03:58:08.249461715Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-GGUF
+2026-05-04T03:58:08.249493345Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-Manager
+2026-05-04T03:58:08.249526858Z    0.1 seconds: /ComfyUI/custom_nodes/ComfyUI-KJNodes
+2026-05-04T03:58:08.249567766Z    0.2 seconds: /ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+2026-05-04T03:58:08.249607601Z    1.1 seconds: /ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper
+2026-05-04T03:58:08.254870607Z Context impl SQLiteImpl.
+2026-05-04T03:58:08.254927685Z Will assume non-transactional DDL.
+2026-05-04T03:58:08.260736643Z Context impl SQLiteImpl.
+2026-05-04T03:58:08.260781899Z Will assume non-transactional DDL.
+2026-05-04T03:58:08.266367414Z Running upgrade  -> 0001_assets, Initial assets schema
+2026-05-04T03:58:08.266380589Z Revision ID: 0001_assets
+2026-05-04T03:58:08.266384707Z Revises: None
+2026-05-04T03:58:08.266388574Z Create Date: 2025-12-10 00:00:00
+2026-05-04T03:58:08.293804887Z Running upgrade 0001_assets -> 0002_merge_to_asset_references, Merge AssetInfo and AssetCacheState into unified asset_references table.
+2026-05-04T03:58:08.315750891Z Running upgrade 0002_merge_to_asset_references -> 0003_add_metadata_job_id, Add system_metadata and job_id columns to asset_references.
+2026-05-04T03:58:08.315772291Z Change preview_id FK from assets.id to asset_references.id.
+2026-05-04T03:58:08.346763199Z Database upgraded from None to 0003_add_metadata_job_id
+2026-05-04T03:58:08.412677015Z Starting server
+2026-05-04T03:58:08.413102279Z To see the GUI go to: http://0.0.0.0:8188
+2026-05-04T03:58:08.413257232Z To see the GUI go to: http://[::]:8188
+2026-05-04T03:58:09.726128789Z ComfyUI is ready!
+2026-05-04T03:58:09.726181489Z Starting the handler...
+2026-05-04T03:58:09.948105318Z /usr/local/lib/python3.10/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+2026-05-04T03:58:09.948119885Z   warnings.warn(
+2026-05-04T03:58:10.316506454Z FETCH ComfyRegistry Data: 5/143
+2026-05-04T03:58:11.292199692Z --- Starting Serverless Worker |  Version 1.8.1 ---
+2026-05-04T03:58:11.427808940Z {"requestId": null, "message": "Jobs in queue: 1", "level": "INFO"}
+2026-05-04T03:58:11.427840891Z {"requestId": null, "message": "Jobs in progress: 1", "level": "INFO"}
+2026-05-04T03:58:11.427921924Z {"requestId": "c6923a22-a4c0-451b-8380-6f2f9ef173ba-u2", "message": "Started.", "level": "INFO"}
+2026-05-04T03:58:11.428103857Z handler.py          :331  2026-05-04 03:58:11,427 Received job input: {'input_type': 'video', 'person_count': 'single', 'prompt': 'A person speaking naturally to camera, clear lip sync', 'video_url': 'https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4', 'wav_url': 'https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav'}
+2026-05-04T03:58:11.428161526Z handler.py          :338  2026-05-04 03:58:11,428 워크플로우 타입: video, 인물 수: single
+2026-05-04T03:58:11.428172618Z handler.py          :342  2026-05-04 03:58:11,428 사용할 워크플로우: /V2V_single.json
+2026-05-04T03:58:11.428217983Z handler.py          :90   2026-05-04 03:58:11,428 🌐 URL 입력 처리: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4
+2026-05-04T03:58:11.837957943Z handler.py          :46   2026-05-04 03:58:11,837 ✅ URL에서 파일을 성공적으로 다운로드했습니다: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/how-to-download-any-youtube-video-in-minutes.mp4 -> /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_video.mp4
+2026-05-04T03:58:11.838035339Z handler.py          :90   2026-05-04 03:58:11,837 🌐 URL 입력 처리: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav
+2026-05-04T03:58:12.243792002Z handler.py          :46   2026-05-04 03:58:12,243 ✅ URL에서 파일을 성공적으로 다운로드했습니다: https://inputdemo-videos-translation.s3.us-east-2.amazonaws.com/eng.wav -> /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_audio.wav
+2026-05-04T03:58:12.305661685Z handler.py          :434  2026-05-04 03:58:12,305 📐 입력 비디오에서 dimension 자동 감지: 640x360
+2026-05-04T03:58:12.305726257Z handler.py          :445  2026-05-04 03:58:12,305 max_frame이 입력되지 않았습니다. 오디오 길이를 기반으로 자동 계산합니다.
+2026-05-04T03:58:13.679492165Z FETCH ComfyRegistry Data: 10/143
+2026-05-04T03:58:16.137862674Z handler.py          :299  2026-05-04 03:58:16,137 첫 번째 오디오 길이: 33.43초
+2026-05-04T03:58:16.137911677Z handler.py          :316  2026-05-04 03:58:16,137 가장 긴 오디오 길이: 33.43초, 계산된 max_frames: 916
+2026-05-04T03:58:16.137916676Z handler.py          :454  2026-05-04 03:58:16,137 워크플로우 설정: prompt='A person speaking naturally to camera, clear lip sync', width=640, height=360, max_frame=916
+2026-05-04T03:58:16.137925673Z handler.py          :457  2026-05-04 03:58:16,137 미디어 경로: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_video.mp4
+2026-05-04T03:58:16.137952114Z handler.py          :458  2026-05-04 03:58:16,137 오디오 경로: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_audio.wav
+2026-05-04T03:58:16.138215872Z handler.py          :469  2026-05-04 03:58:16,138 🔧 설정: force_offload=True
+2026-05-04T03:58:16.138250187Z handler.py          :490  2026-05-04 03:58:16,138 ✅ 노드 128 (WanVideoSampler) 업데이트됨: force_offload=True
+2026-05-04T03:58:16.138291034Z handler.py          :508  2026-05-04 03:58:16,138 미디어 파일 크기: 3589410 bytes
+2026-05-04T03:58:16.138310972Z handler.py          :509  2026-05-04 03:58:16,138 오디오 파일 크기: 5897486 bytes
+2026-05-04T03:58:16.138328795Z handler.py          :540  2026-05-04 03:58:16,138 Connecting to WebSocket: ws://127.0.0.1:8188/ws?clientId=1f4f556d-8cf8-41e9-97c0-7c7ac71e642b
+2026-05-04T03:58:16.138333835Z handler.py          :544  2026-05-04 03:58:16,138 Checking HTTP connection to: http://127.0.0.1:8188/
+2026-05-04T03:58:16.141940351Z handler.py          :553  2026-05-04 03:58:16,141 HTTP 연결 성공 (시도 1)
+2026-05-04T03:58:16.143585530Z handler.py          :573  2026-05-04 03:58:16,143 웹소켓 연결 성공 (시도 1)
+2026-05-04T03:58:16.143621808Z handler.py          :104  2026-05-04 03:58:16,143 Queueing prompt to: http://127.0.0.1:8188/prompt
+2026-05-04T03:58:16.144041732Z handler.py          :109  2026-05-04 03:58:16,143 워크플로우 노드 수: 32
+2026-05-04T03:58:16.144075225Z handler.py          :115  2026-05-04 03:58:16,143 비디오 노드(228) 설정: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_video.mp4
+2026-05-04T03:58:16.144086106Z handler.py          :118  2026-05-04 03:58:16,144 오디오 노드(125) 설정: /task_6ee92996-a7c1-4cfe-a4a2-18348501eff8/input_audio.wav
+2026-05-04T03:58:16.144089963Z handler.py          :121  2026-05-04 03:58:16,144 텍스트 노드(241) 설정: A person speaking naturally to camera, clear lip sync
+2026-05-04T03:58:16.144959917Z got prompt
+2026-05-04T03:58:16.152486862Z handler.py          :140  2026-05-04 03:58:16,152 프롬프트 전송 성공: {'prompt_id': 'ef718c31-7f8e-47f5-9b90-4c9814322eaa', 'number': 0, 'node_errors': {}}
+2026-05-04T03:58:16.152512310Z handler.py          :169  2026-05-04 03:58:16,152 워크플로우 실행 시작: prompt_id=ef718c31-7f8e-47f5-9b90-4c9814322eaa
+2026-05-04T03:58:16.200232843Z handler.py          :179  2026-05-04 03:58:16,200 노드 실행 중: 125
+2026-05-04T03:58:16.334021873Z handler.py          :179  2026-05-04 03:58:16,333 노드 실행 중: 137
+2026-05-04T03:58:16.369249817Z Downloading Qwen model to: /ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
+2026-05-04T03:58:16.369869068Z /usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `snapshot_download`. Downloading to a local directory does not use symlinks anymore.
+2026-05-04T03:58:16.369894355Z   warnings.warn(
+2026-05-04T03:58:16.540501284Z HTTP Request: GET https://huggingface.co/api/models/TencentGameMate/chinese-wav2vec2-base/revision/main "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.612685791Z Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T03:58:16.623775218Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.639062669Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/config.json "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.663496184Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T03:58:16.676298378Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.691057099Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/README.md "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.713404603Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-04T03:58:16.715693899Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T03:58:16.716940124Z Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-04T03:58:16.717038390Z Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-04T03:58:16.730044619Z HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.740444193Z HTTP Request: HEAD https://huggingface.co/TencentGameMate/chinese-wav2vec2-base/resolve/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-04T03:58:16.743786850Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/.gitattributes "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.753081776Z Fetching 5 files:  20%|██        | 1/5 [00:00<00:00,  5.15it/s]HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.767184247Z HTTP Request: GET https://huggingface.co/api/resolve-cache/models/TencentGameMate/chinese-wav2vec2-base/3991242c806928916fff4a8c0e4f76acf661b743/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-05-04T03:58:16.785406574Z HTTP Request: GET https://huggingface.co/api/models/TencentGameMate/chinese-wav2vec2-base/xet-read-token/3991242c806928916fff4a8c0e4f76acf661b743 "HTTP/1.1 200 OK"
+2026-05-04T03:58:17.069979890Z FETCH ComfyRegistry Data: 15/143
+2026-05-04T03:58:18.614024486Z Fetching 5 files: 100%|██████████| 5/5 [00:02<00:00,  2.35it/s]Fetching 5 files: 100%|██████████| 5/5 [00:02<00:00,  2.43it/s]
+2026-05-04T03:58:18.785564719Z Loading weights:   0%|          | 0/211 [00:00<?, ?it/s]Loading weights: 100%|██████████| 211/211 [00:00<00:00, 19536.38it/s]
+2026-05-04T03:58:18.872544446Z [transformers] [1mWav2Vec2Model LOAD REPORT[0m from: /ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
+2026-05-04T03:58:18.872584291Z Key                          | Status     |  |
+2026-05-04T03:58:18.872588569Z -----------------------------+------------+--+-
+2026-05-04T03:58:18.872592497Z quantizer.weight_proj.weight | UNEXPECTED |  |
+2026-05-04T03:58:18.872596584Z project_hid.weight           | UNEXPECTED |  |
+2026-05-04T03:58:18.872600291Z project_q.bias               | UNEXPECTED |  |
+2026-05-04T03:58:18.872604479Z project_q.weight             | UNEXPECTED |  |
+2026-05-04T03:58:18.872608597Z quantizer.weight_proj.bias   | UNEXPECTED |  |
+2026-05-04T03:58:18.872611893Z quantizer.codevectors        | UNEXPECTED |  |
+2026-05-04T03:58:18.872615190Z project_hid.bias             | UNEXPECTED |  |
+2026-05-04T03:58:18.872622032Z Notes:
+2026-05-04T03:58:18.872626291Z - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-04T03:58:19.636527927Z handler.py          :179  2026-05-04 03:58:19,636 노드 실행 중: 270
+2026-05-04T03:58:19.638072837Z handler.py          :179  2026-05-04 03:58:19,637 노드 실행 중: 303
+2026-05-04T03:58:19.757912434Z /usr/local/lib/python3.10/dist-packages/torch/functional.py:681: UserWarning: A window was not provided. A rectangular window will be applied,which is known to cause spectral leakage. Other windows such as torch.hann_window or torch.hamming_window are recommended to reduce spectral leakage.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at /pytorch/aten/src/ATen/native/SpectralOps.cpp:836.)
+2026-05-04T03:58:19.757944314Z   return _VF.stft(  # type: ignore[attr-defined]
+2026-05-04T03:58:20.609634736Z FETCH ComfyRegistry Data: 20/143
+2026-05-04T03:58:20.891056116Z WARNING path /ComfyUI/models/diffusion_models/MelBandRoformer_fp16.safetensors exists but doesn't link anywhere, skipping.
+2026-05-04T03:58:20.891432968Z !!! Exception during processing !!! Model in folder 'diffusion_models' with filename 'MelBandRoformer_fp16.safetensors' not found.
+2026-05-04T03:58:20.892307040Z Traceback (most recent call last):
+2026-05-04T03:58:20.892326446Z   File "/ComfyUI/execution.py", line 535, in execute
+2026-05-04T03:58:20.892331406Z     output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)
+2026-05-04T03:58:20.892336375Z   File "/ComfyUI/execution.py", line 335, in get_output_data
+2026-05-04T03:58:20.892340623Z     return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)
+2026-05-04T03:58:20.892344681Z   File "/ComfyUI/execution.py", line 309, in _async_map_node_over_list
+2026-05-04T03:58:20.892349730Z     await process_inputs(input_dict, i)
+2026-05-04T03:58:20.892353287Z   File "/ComfyUI/execution.py", line 297, in process_inputs
+2026-05-04T03:58:20.892357044Z     result = f(**inputs)
+2026-05-04T03:58:20.892361092Z   File "/ComfyUI/custom_nodes/ComfyUI-MelBandRoFormer/nodes.py", line 67, in loadmodel
+2026-05-04T03:58:20.892370299Z     model_path = folder_paths.get_full_path_or_raise("diffusion_models", model_name)
+2026-05-04T03:58:20.892374157Z   File "/ComfyUI/folder_paths.py", line 377, in get_full_path_or_raise
+2026-05-04T03:58:20.892378084Z     raise FileNotFoundError(f"Model in folder '{folder_name}' with filename '{filename}' not found.")
+2026-05-04T03:58:20.892381961Z FileNotFoundError: Model in folder 'diffusion_models' with filename 'MelBandRoformer_fp16.safetensors' not found.
+2026-05-04T03:58:20.893410986Z Prompt executed in 4.74 seconds
+2026-05-04T03:58:21.171294109Z handler.py          :181  2026-05-04 03:58:21,171 워크플로우 실행 완료
+2026-05-04T03:58:21.171391012Z handler.py          :186  2026-05-04 03:58:21,171 히스토리 조회 중: prompt_id=ef718c31-7f8e-47f5-9b90-4c9814322eaa
+2026-05-04T03:58:21.171414125Z handler.py          :162  2026-05-04 03:58:21,171 Getting history from: http://127.0.0.1:8188/history/ef718c31-7f8e-47f5-9b90-4c9814322eaa
+2026-05-04T03:58:21.176127112Z handler.py          :188  2026-05-04 03:58:21,176 출력 노드 수: 0
+2026-05-04T03:58:21.176175524Z handler.py          :216  2026-05-04 03:58:21,176 총 0개 노드에서 비디오 파일 경로 수집 완료
+2026-05-04T03:58:21.176697160Z handler.py          :582  2026-05-04 03:58:21,176 웹소켓 연결 종료
+2026-05-04T03:58:21.176752173Z handler.py          :586  2026-05-04 03:58:21,176 출력 비디오 검색 중...
+2026-05-04T03:58:21.176785406Z handler.py          :597  2026-05-04 03:58:21,176 출력 비디오를 찾을 수 없습니다. 모든 노드가 비어있습니다.
+2026-05-04T03:58:21.258336554Z {"requestId": "c6923a22-a4c0-451b-8380-6f2f9ef173ba-u2", "message": "Finished.", "level": "INFO"}
+2026-05-04T03:58:24.212414588Z FETCH ComfyRegistry Data: 25/143
+2026-05-04T03:58:27.580195441Z FETCH ComfyRegistry Data: 30/143
